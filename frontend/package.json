@@ -3,8 +3,7 @@
     "private": true,
     "version": "0.0.0",
     "type": "module",
-    "scripts": 
-    {
+    "scripts": {
         "dev": "vite",
         "build": "vite build",
         "preview": "vite preview",
@@ -12,13 +11,13 @@
         "lint:fix": "eslint --ext .js,.vue --ignore-path .gitignore . --fix",
         "format": "prettier --write ."
     },
-    "dependencies": 
-    {
+    "dependencies": {
+        "boxicons": "^2.1.4",
+        "pinia": "^3.0.2",
         "vue": "^3.5.13",
         "vue-router": "^4.5.1"
     },
-    "devDependencies": 
-    {
+    "devDependencies": {
         "@vitejs/plugin-vue": "^5.2.3",
         "eslint": "^9.26.0",
         "eslint-config-prettier": "^10.1.3",

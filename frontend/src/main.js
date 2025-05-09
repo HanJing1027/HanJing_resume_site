@@ -1,5 +1,8 @@
 import { createApp } from 'vue'
-import './style.css'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+import '@/assets/styles/main.scss'
+import 'boxicons/css/boxicons.min.css'
+
+const app = createApp(App)
+app.mount('#app')
