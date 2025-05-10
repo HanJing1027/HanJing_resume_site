@@ -99,9 +99,9 @@
 }
 
 .hello-title {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 800;
-  color: #111;
+  color: $dark-text;
   margin: 0 0 1rem;
   text-transform: uppercase;
 }
@@ -111,6 +111,7 @@
   color: $dark-text;
   margin-bottom: 2rem;
   font-weight: 500;
+  line-height: 1.25;
 }
 
 .action-buttons {
@@ -125,6 +126,10 @@
   font-weight: 600;
   text-decoration: none;
   transition: all $transition-speed ease;
+
+  @media (max-width: $mobile-breakpoint) {
+    padding: 0.7rem 1.7rem;
+  }
 
   &.primary {
     background-color: $primary-color;
@@ -157,7 +162,7 @@
   }
 
   .hello-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 }
 </style>

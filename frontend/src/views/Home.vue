@@ -20,6 +20,7 @@ import SkillsSection from '@/components/profile/SkillsSection.vue'
   align-items: center;
   min-height: 100vh;
   background-color: #f6f1e8;
+  // background-color: #f5efcf;
   padding: 6rem 1rem 6rem;
   gap: 4vh;
 

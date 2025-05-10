@@ -1,3 +1,4 @@
+<!-- 考慮加入個區塊快速連結 -->
 <template>
   <nav class="navbar" aria-label="主導航">
     <!-- 品牌標誌 -->
