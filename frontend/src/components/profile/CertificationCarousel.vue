@@ -13,7 +13,7 @@
         :breakpoints="swiperBreakpoints"
         :pagination="{ clickable: true }"
         :navigation="true"
-        :autoplay="{ delay: 4000, disableOnInteraction: false }"
+        :autoplay="{ delay: 4000, disableOnInteraction: true }"
         class="certification-swiper"
       >
         <swiper-slide v-for="(cert, index) in certifications" :key="index" class="cert-slide">
@@ -61,19 +61,17 @@ const certifications = ref([
   },
 ])
 
-// Swiper 配置 - 修改為最多顯示兩張卡片
+// swiper 配置
 const SwiperNavigation = Navigation
 const SwiperPagination = Pagination
 const SwiperAutoplay = Autoplay
 const swiperBreakpoints = {
-  // 當視窗寬度大於等於 768px
   768: {
     slidesPerView: 2,
     spaceBetween: 30,
   },
-  // 當視窗寬度大於等於 1024px
   1024: {
-    slidesPerView: 2, // 修改為顯示兩張卡片
+    slidesPerView: 2, // 最多顯示卡片數量
     spaceBetween: 50,
   },
 }
@@ -115,7 +113,7 @@ const swiperBreakpoints = {
 .certification-carousel {
   width: 100%;
 
-  // 修改左右箭頭樣式
+  // 左右箭頭樣式
   :deep(.swiper-button-prev),
   :deep(.swiper-button-next) {
     width: 40px;
@@ -133,6 +131,29 @@ const swiperBreakpoints = {
     &:hover {
       background-color: $primary-color;
       color: white;
+    }
+  }
+
+  // 分頁點點樣式
+  :deep(.swiper-pagination) {
+    margin-top: 15px;
+
+    // 未選中
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      background-color: #cccccc;
+      opacity: 0.6;
+      margin: 0 5px;
+      transition: all 0.3s ease;
+    }
+
+    // 選中
+    .swiper-pagination-bullet-active {
+      background-color: $primary-color;
+      opacity: 1;
+      width: 12px;
+      height: 12px;
     }
   }
 }
@@ -153,7 +174,7 @@ const swiperBreakpoints = {
   transition: all 0.3s ease;
 
   .cert-image {
-    height: 300px; // 增加圖片容器高度，從原本的180px增加到230px
+    height: 300px;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -165,7 +186,6 @@ const swiperBreakpoints = {
       height: 100%;
       object-fit: contain;
       transition: transform 0.5s ease;
-      max-height: 300px; // 同步增加最大高度
     }
   }
 
@@ -202,15 +222,15 @@ const swiperBreakpoints = {
   }
 
   .certification-swiper {
-    height: 420px; // 增加響應式下的高度
+    height: 420px;
   }
 
   .cert-card {
     .cert-image {
-      height: 200px; // 增加響應式下的圖片容器高度
+      height: 300px;
 
       img {
-        max-height: 200px; // 增加響應式下的圖片最大高度
+        max-height: 200px;
       }
     }
   }

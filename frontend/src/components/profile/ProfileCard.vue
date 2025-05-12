@@ -41,6 +41,7 @@ import avatarImg from '@/assets/images/avatar/avatar.jpg'
   display: flex;
   max-width: 1200px;
   width: 100%;
+  margin: 0 auto;
   background-color: $background;
   box-shadow: 0 8px 30px $shadow;
   border-radius: 4px;

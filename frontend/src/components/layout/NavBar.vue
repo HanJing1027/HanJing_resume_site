@@ -1,4 +1,3 @@
-<!-- 考慮加入個區塊快速連結 -->
 <template>
   <nav class="navbar" aria-label="主導航">
     <!-- 品牌標誌 -->
@@ -6,24 +5,29 @@
       <router-link to="/" class="logo">HanJing</router-link>
     </div>
 
-    <!-- 導航選單 -->
+    <!-- 主導航選單 -->
     <div class="navbar-menu" :class="{ 'is-active': isMenuActive }">
-      <router-link
-        to="/"
-        class="navbar-item"
-        exact-active-class="active-link"
-        @click="closeMenuOnMobile"
-      >
-        about me
-      </router-link>
+      <div class="navbar-item nav-group">
+        <span class="navbar-link">About Me</span>
+        <div class="dropdown-menu">
+          <a href="#" class="dropdown-item" @click.prevent="scrollToSection('profile')">Profile</a>
+          <a href="#" class="dropdown-item" @click.prevent="scrollToSection('skills')">Skills</a>
+          <a href="#" class="dropdown-item" @click.prevent="scrollToSection('certifications')"
+            >Certifications</a
+          >
+        </div>
+      </div>
+
       <router-link
         to="/projects"
         class="navbar-item"
         active-class="active-link"
         @click="closeMenuOnMobile"
       >
-        projects
+        Projects
       </router-link>
+
+      <!-- 其他選單項目 -->
     </div>
 
     <!-- 漢堡選單按鈕 -->
@@ -49,6 +53,12 @@ const isMenuActive = ref(false)
 // 選單開關
 const toggleMenu = () => {
   isMenuActive.value = !isMenuActive.value
+
+  if (isMenuActive.value) {
+    document.body.style.overflow = 'hidden'
+  } else {
+    document.body.style.overflow = ''
+  }
 }
 
 // 在手機上點擊選單項後自動關閉選單
@@ -56,6 +66,22 @@ const closeMenuOnMobile = () => {
   if (window.innerWidth <= 768) {
     isMenuActive.value = false
     document.body.style.overflow = ''
+  }
+}
+
+// 滾動到特定區塊的功能
+const scrollToSection = async (sectionId) => {
+  closeMenuOnMobile()
+
+  if (route.path !== '/') {
+    // 如果不在首頁 先到首頁
+    await router.push({ name: 'Home', hash: `#${sectionId}` })
+  } else {
+    // 如果已經在首頁 直接滾動到目標區塊
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 }
 
@@ -153,6 +179,67 @@ onBeforeUnmount(() => {
     }
   }
 
+  // 下拉選單樣式
+  .nav-group {
+    position: relative;
+
+    .navbar-link {
+      position: relative;
+      display: inline-block;
+      margin-right: 1.5rem;
+
+      &:after {
+        content: '⏏︎';
+        position: absolute;
+        right: -25px;
+        top: 0;
+        transform: rotate(180deg);
+        transition: transform 0.3s ease;
+      }
+    }
+
+    &:hover .navbar-link:after {
+      transform: rotate(0deg);
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+      min-width: 180px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      z-index: 20;
+      padding: 0.5rem 0;
+    }
+
+    &:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      display: block;
+      padding: 0.7rem 1.2rem;
+      color: $text-color;
+      text-decoration: none;
+      text-transform: none;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+        color: $primary-color;
+      }
+    }
+  }
+
   &-burger {
     display: none;
     cursor: pointer;
@@ -214,7 +301,7 @@ onBeforeUnmount(() => {
       box-shadow: 0 5px 10px $shadow;
 
       &.is-active {
-        max-height: 300px;
+        max-height: 500px; // 增加高度以適應更多選單項
         opacity: 1;
         visibility: visible;
         padding: 1rem 0;
@@ -223,7 +310,7 @@ onBeforeUnmount(() => {
       .navbar-item {
         width: 80%;
         padding: 0.75rem 0;
-        text-align: start;
+        text-align: center;
         opacity: 0;
         transform: translateY(-10px);
         transition:
@@ -235,6 +322,34 @@ onBeforeUnmount(() => {
         opacity: 1;
         transform: translateY(0);
         transition-delay: 0.1s;
+      }
+
+      // 移動版下拉選單
+      .nav-group {
+        width: 80%;
+        text-align: center;
+
+        .dropdown-menu {
+          position: static;
+          opacity: 1;
+          visibility: visible;
+          transform: none;
+          box-shadow: none;
+          padding: 0;
+          margin-top: 0.5rem;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease;
+        }
+
+        &.active .dropdown-menu {
+          max-height: 300px;
+        }
+
+        .dropdown-item {
+          padding: 0.5rem 0;
+          text-align: center;
+        }
       }
     }
   }
