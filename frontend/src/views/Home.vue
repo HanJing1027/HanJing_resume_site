@@ -2,12 +2,14 @@
   <div class="home-container">
     <ProfileCard />
     <SkillsSection />
+    <CertificationCarousel />
   </div>
 </template>
 
 <script setup>
 import ProfileCard from '@/components/profile/ProfileCard.vue'
 import SkillsSection from '@/components/profile/SkillsSection.vue'
+import CertificationCarousel from '@/components/profile/CertificationCarousel.vue'
 </script>
 
 <style lang="scss" scoped>

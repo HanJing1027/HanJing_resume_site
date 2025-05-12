@@ -2,7 +2,7 @@
   <div class="profile-card">
     <div class="profile-left">
       <div class="profile-image">
-        <img src="../../assets/images/avatar.jpg" alt="個人照片" />
+        <img :src="avatarImg" alt="個人照片" />
       </div>
       <h2 class="profile-name">黃翰靖</h2>
       <div class="profile-divider"></div>
@@ -30,7 +30,9 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import avatarImg from '@/assets/images/avatar/avatar.jpg'
+</script>
 
 <style lang="scss" scoped>
 @use '@/assets/styles/_variables.scss' as *;
