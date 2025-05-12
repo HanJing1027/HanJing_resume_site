@@ -11,7 +11,6 @@
     </div>
 
     <!-- 技術能力展示 -->
-    <!-- 增加讀條感覺的動畫樣式 -->
     <div class="tech-skills">
       <h3>技術能力</h3>
       <div class="skill-bars">
@@ -40,42 +39,62 @@ const mainSkills = ref([
   {
     title: '前端開發',
     icon: 'bx-code',
-    description:
-      '自學 Vue.js 框架，能獨立開發互動式網頁，了解元件化設計與前端模組化流程，持續學習現代前端技術。',
+    description: [
+      '自學 Vue.js 框架與相關生態系統',
+      '理解元件化設計與前端模組化概念',
+      '持續學習並應用現代前端開發技術',
+    ],
   },
   {
     title: '全端協作',
     icon: 'bx-group',
-    description:
-      '具備與後端工程師協作經驗，理解 API 設計與整合流程，能有效溝通技術需求並共同解決前後端銜接問題。',
+    description: [
+      '有與後端工程師協作經驗',
+      '熟悉 API 串接與資料處理流程',
+      '能有效溝通並解析技術需求',
+      '解決前後端資料交換與整合問題',
+    ],
   },
   {
     title: 'UI/UX 設計',
     icon: 'bx-palette',
-    description: '平面設計轉職，具備基礎設計直覺且美觀的使用者介面，並考慮使用者體驗與可用性。',
+    description: [
+      '具平面設計背景，轉職前端開發',
+      '設計直覺且美觀的使用者介面',
+      '考量使用者體驗與操作流程設計',
+      '注重美感與功能的平衡',
+    ],
   },
   {
     title: '響應式設計',
     icon: 'bx-mobile',
-    description: '注重跨裝置使用體驗，運用 CSS Grid 與 Flexbox 打造適應各種螢幕尺寸的網站。',
+    description: [
+      '注重各裝置的瀏覽體驗與操作流暢度',
+      '熟悉響應式網頁的排版與布局技巧',
+      '能根據不同螢幕尺寸調整設計與排版',
+      '確保網站在桌機、平板與手機等媒介中保持一致性與可用性',
+    ],
   },
   {
     title: '自主學習',
     icon: 'bx-book',
-    description: '具備高效的自學能力，透過線上課程、文件與實作進行學習，並能迅速應用於專案中。',
+    description: [
+      '透過線上課程與文件高效自學',
+      '主動解決開發過程中的技術問題',
+      '快速吸收並實踐新知識於專案中',
+    ],
   },
 ])
 // 技術能力資料
 const techSkills = ref([
-  { name: 'Vue.js', percentage: 75 },
-  { name: 'HTML5 & CSS3', percentage: 85 },
-  { name: 'JavaScript', percentage: 65 },
-  { name: 'SCSS/SASS', percentage: 80 },
+  { name: 'Vue.js', percentage: 80 },
+  { name: 'HTML5 & CSS3', percentage: 82 },
+  { name: 'JavaScript', percentage: 72 },
+  { name: 'SCSS/SASS', percentage: 72 },
   { name: '前後端協作', percentage: 75 },
-  { name: '響應式設計', percentage: 80 },
+  { name: '響應式設計', percentage: 78 },
   { name: 'Git版本控制', percentage: 70 },
 ])
-
 // 其他專業能力
 const skillCategories = ref([
   {
