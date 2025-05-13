@@ -89,7 +89,7 @@ const mainSkills = ref([
 const techSkills = ref([
   { name: 'Vue.js', percentage: 80 },
   { name: 'HTML5 & CSS3', percentage: 82 },
-  { name: 'JavaScript', percentage: 72 },
+  { name: 'JavaScript', percentage: 68 },
   { name: 'SCSS/SASS', percentage: 72 },
   { name: '前後端協作', percentage: 75 },
   { name: '響應式設計', percentage: 78 },

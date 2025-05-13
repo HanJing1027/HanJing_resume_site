@@ -28,10 +28,10 @@
       >
         Projects
       </router-link>
+    </div>
 
-      <div class="navbar-item theme-toggle-wrapper">
-        <ThemeToggle />
-      </div>
+    <div class="theme-toggle-wrapper">
+      <ThemeToggle />
     </div>
 
     <!-- 漢堡選單 -->
@@ -145,23 +145,23 @@ onBeforeUnmount(() => {
 <style lang="scss" scoped>
 @use '@/assets/styles/variables.scss' as *;
 
+.theme-toggle-wrapper {
+  position: absolute;
+  right: 2rem;
+}
+
 .navbar {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem 6.4rem 1rem 2rem;
   background-color: var(--card-bg-alt);
   box-shadow: 0 2px 10px var(--shadow);
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1000;
   transition: all $transition-speed ease;
-
-  .theme-toggle-wrapper {
-    display: flex;
-    align-items: center;
-    margin-left: 1rem;
-  }
 
   &-logo {
     .logo {
@@ -340,7 +340,7 @@ onBeforeUnmount(() => {
     &-burger {
       display: block;
       position: absolute;
-      right: 2rem;
+      right: 5rem;
       top: 50%;
       transform: translateY(-50%);
       z-index: 10;

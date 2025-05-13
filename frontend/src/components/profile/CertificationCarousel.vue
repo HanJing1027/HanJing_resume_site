@@ -183,7 +183,7 @@ const swiperBreakpoints = {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f8f8f8;
+    background-color: var(--img-bg);
 
     img {
       width: 100%;

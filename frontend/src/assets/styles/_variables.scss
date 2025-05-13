@@ -12,6 +12,7 @@ $mobile-breakpoint: 768px;
   --card-bg       : #faf5f1; // 微橙卡片
   --card-bg-alt   : #ffffff; // 純白卡片
   --border-color  : #f2e6da; // 橙調邊框
+  --img-bg        : #f8f8f8; // 圖片背景
   --shadow        : rgba(150, 100, 60, 0.08); // 橙調陰影
   --accent-light  : rgba(230, 126, 34, 0.15); // 主色15%透明度
   --accent-lighter: rgba(230, 126, 34, 0.05); // 主色5%透明度
@@ -22,13 +23,14 @@ $mobile-breakpoint: 768px;
 
 // 暗色主題
 [data-theme="dark"] {
-  --primary-color : #ff7f50; // 保持主題色不變
+  --primary-color : #ff7f50;
   --text-color    : #e0e0e0;
   --dark-text     : #ffffff;
   --background    : #121212;
   --card-bg       : #1e1e1e;
   --card-bg-alt   : #2d2d2d;
   --border-color  : #333333;
+  --img-bg        : #2a2a2a;
   --shadow        : rgba(0, 0, 0, 0.3);
   --accent-light  : rgba(255, 127, 80, 0.25);
   --accent-lighter: rgba(255, 127, 80, 0.1);

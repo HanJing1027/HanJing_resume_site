@@ -60,4 +60,15 @@ const toggleTheme = () => {
     font-size: 1.4rem;
   }
 }
+
+@media (max-width: $mobile-breakpoint) {
+  .theme-toggle {
+    width: 30px;
+    height: 30px;
+
+    i {
+      font-size: 1.2rem;
+    }
+  }
+}
 </style>
