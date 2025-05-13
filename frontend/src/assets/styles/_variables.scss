@@ -5,11 +5,9 @@ $mobile-breakpoint: 768px;
 // ======= CSS 變數 =======
 :root {
   // 白天主題 (預設)
-  --primary-color: #ff7f50; // 精緻橙色
-  --text-color   : #555555; // 中性灰色文字
-  --dark-text    : #333333; // 深灰近黑
-
-  // 高對比漸層背景 - 白天主題
+  --primary-color : #ff7f50;
+  --text-color    : #555555;
+  --dark-text     : #333333;
   --background    : linear-gradient(125deg, #fcf6ef 0%, #fff7ee 48%, #fcf6ef 52%, #f9f4ed 100%);
   --card-bg       : #faf5f1;
   --card-bg-alt   : #ffffff;
@@ -19,17 +17,19 @@ $mobile-breakpoint: 768px;
   --accent-light  : rgba(230, 126, 34, 0.15);
   --accent-lighter: rgba(230, 126, 34, 0.05);
 
+  --primary-color     : #ff7f50;
+  --primary-color-dark: #e56b3e;
+  --primary-color-rgb : 255, 127, 80;
+
   // 主題切換時的過渡效果
   transition: all 0.3s ease-in-out;
 }
 
 // 暗色主題
 [data-theme="dark"] {
-  --primary-color: #ff7f50;
-  --text-color   : #e0e0e0;
-  --dark-text    : #ffffff;
-
-  // 暗色主題
+  --primary-color : #ff7f50;
+  --text-color    : #e0e0e0;
+  --dark-text     : #ffffff;
   --background    : linear-gradient(145deg, #24201e 0%, #1f1c1a 30%, #1a1816 60%, #151312 100%);
   --card-bg       : #1e1e1e;
   --card-bg-alt   : #2d2d2d;
@@ -38,6 +38,10 @@ $mobile-breakpoint: 768px;
   --shadow        : rgba(0, 0, 0, 0.3);
   --accent-light  : rgba(255, 127, 80, 0.25);
   --accent-lighter: rgba(255, 127, 80, 0.1);
+
+  --primary-color     : #ff7f50;
+  --primary-color-dark: #e56b3e;
+  --primary-color-rgb : 255, 127, 80;
 }
 
 // ======= SCSS 變數 =======
