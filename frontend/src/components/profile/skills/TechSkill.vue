@@ -75,20 +75,18 @@ onMounted(() => {
 
 .skill-bar {
   height: 8px;
-  background-color: var(--border-color);
+  background: var(--border-color);
   border-radius: 100px;
   box-shadow:
     inset 0 1px 3px var(--shadow),
     inset 0 0 2px rgba(0, 0, 0, 0.05);
-  transition:
-    background-color $transition-speed ease,
-    box-shadow $transition-speed ease;
+  transition: all $transition-speed ease;
 }
 
 .skill-progress {
   width: 0;
   height: 100%;
-  background-color: var(--primary-color);
+  background: var(--primary-color);
   border-radius: 100px;
   transition:
     width 1.5s cubic-bezier(0.4, 0, 0.2, 1),

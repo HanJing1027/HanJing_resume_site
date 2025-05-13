@@ -51,7 +51,7 @@ const openModal = () => {
 .skill-card {
   cursor: default;
   padding: 2rem;
-  background-color: var(--card-bg-alt);
+  background: var(--card-bg-alt);
   border-radius: 8px;
   box-shadow: 0 5px 15px var(--shadow);
   transition: all $transition-speed ease;
@@ -98,7 +98,7 @@ const openModal = () => {
       left: 50%;
       width: 0;
       height: 1px;
-      background-color: var(--primary-color);
+      background: var(--primary-color);
       transition: all $transition-speed ease;
       transform: translateX(-50%);
     }
@@ -149,7 +149,7 @@ const openModal = () => {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--accent-lighter);
+    background: var(--accent-lighter);
     border-radius: 50%;
     font-size: 2rem;
     color: var(--primary-color);
@@ -173,13 +173,13 @@ const openModal = () => {
     padding: 0.8rem 1rem 0.8rem 2.5rem;
     margin-bottom: 0.5rem;
     color: var(--text-color);
-    background-color: var(--accent-lighter);
+    background: var(--accent-lighter);
     border-radius: 8px;
     transition: all $transition-speed ease;
     border: 1px solid var(--border-color);
 
     &:hover {
-      background-color: var(--accent-light);
+      background: var(--accent-light);
     }
 
     &:before {

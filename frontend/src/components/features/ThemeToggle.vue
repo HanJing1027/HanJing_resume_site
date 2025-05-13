@@ -43,7 +43,7 @@ const toggleTheme = () => {
   height: 40px;
   border-radius: 50%;
   border: none;
-  background-color: var(--accent-lighter);
+  background: var(--accent-lighter);
   color: var(--primary-color);
   display: flex;
   align-items: center;
@@ -52,7 +52,7 @@ const toggleTheme = () => {
   transition: all $transition-speed ease;
 
   &:hover {
-    background-color: var(--accent-light);
+    background: var(--accent-light);
     transform: rotate(15deg);
   }
 

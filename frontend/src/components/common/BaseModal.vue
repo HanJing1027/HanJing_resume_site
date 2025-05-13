@@ -42,7 +42,7 @@ const closeModal = () => {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,7 +51,7 @@ const closeModal = () => {
 }
 
 .modal-content {
-  background-color: var(--card-bg-alt);
+  background: var(--card-bg-alt);
   border-radius: 12px;
   max-width: 500px;
   width: 90%;

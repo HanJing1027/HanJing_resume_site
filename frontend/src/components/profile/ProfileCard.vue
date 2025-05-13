@@ -42,7 +42,7 @@ import avatarImg from '@/assets/images/avatar/avatar.jpg'
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  background-color: var(--card-bg-alt);
+  background: var(--card-bg-alt);
   box-shadow: 0 8px 30px var(--shadow);
   border-radius: 4px;
   overflow: hidden;
@@ -52,7 +52,7 @@ import avatarImg from '@/assets/images/avatar/avatar.jpg'
 
 .profile-left {
   flex: 0 0 40%;
-  background-color: var(--card-bg);
+  background: var(--card-bg);
   padding: 3rem 2rem;
   display: flex;
   flex-direction: column;
@@ -89,9 +89,9 @@ import avatarImg from '@/assets/images/avatar/avatar.jpg'
 .profile-divider {
   width: 80px;
   height: 3px;
-  background-color: var(--primary-color);
+  background: var(--primary-color);
   margin: 1rem auto;
-  transition: background-color $transition-speed ease;
+  transition: all $transition-speed ease;
 }
 
 .profile-title {
@@ -145,7 +145,7 @@ import avatarImg from '@/assets/images/avatar/avatar.jpg'
   }
 
   &.primary {
-    background-color: var(--primary-color);
+    background: var(--primary-color);
     color: white;
 
     &:hover {

@@ -131,7 +131,7 @@ const skillCategories = ref([
 
 .skills-section {
   padding: 4rem 2rem;
-  background-color: var(--card-bg-alt);
+  background: var(--card-bg-alt);
   border-radius: 4px;
   max-width: 1200px;
   width: 100%;
@@ -162,9 +162,9 @@ const skillCategories = ref([
   .title-divider {
     width: 80px;
     height: 3px;
-    background-color: var(--primary-color);
+    background: var(--primary-color);
     margin: 0 auto;
-    transition: background-color $transition-speed ease;
+    transition: all $transition-speed ease;
   }
 }
 

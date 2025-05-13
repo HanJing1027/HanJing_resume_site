@@ -68,7 +68,7 @@ watch(
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: var(--background);
+  background: var(--background);
   color: var(--text-color);
   padding: 6rem 1rem 6rem;
   gap: 4vh;

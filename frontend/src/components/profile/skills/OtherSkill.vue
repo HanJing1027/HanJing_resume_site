@@ -54,7 +54,7 @@ const toggleCategory = (index) => {
 }
 
 .skill-category {
-  background-color: var(--card-bg-alt);
+  background: var(--card-bg-alt);
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 10px var(--shadow);
@@ -68,7 +68,7 @@ const toggleCategory = (index) => {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
-  background-color: var(--accent-lighter);
+  background: var(--accent-lighter);
   transition: all $transition-speed ease;
 
   h4 {
@@ -90,7 +90,7 @@ const toggleCategory = (index) => {
   }
 
   &:hover {
-    background-color: var(--accent-light);
+    background: var(--accent-light);
   }
 }
 
@@ -100,7 +100,7 @@ const toggleCategory = (index) => {
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 0.8rem;
   transition: all $transition-speed ease;
-  background-color: var(--card-bg-alt);
+  background: var(--card-bg-alt);
 }
 
 .skill-item {
@@ -110,7 +110,7 @@ const toggleCategory = (index) => {
   gap: 0.5rem;
   padding: 0.5rem 1rem;
   border-radius: 4px;
-  background-color: var(--accent-lighter);
+  background: var(--accent-lighter);
   border: 1px solid var(--border-color);
   transition: all $transition-speed ease;
 
@@ -127,7 +127,7 @@ const toggleCategory = (index) => {
   }
 
   &:hover {
-    background-color: var(--accent-light);
+    background: var(--accent-light);
   }
 }
 

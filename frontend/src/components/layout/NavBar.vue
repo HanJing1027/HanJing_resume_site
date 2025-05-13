@@ -156,7 +156,7 @@ onBeforeUnmount(() => {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 6.4rem 1rem 2rem;
-  background-color: var(--card-bg-alt);
+  background: var(--card-bg-alt);
   box-shadow: 0 2px 10px var(--shadow);
   position: fixed;
   top: 0;
@@ -179,7 +179,7 @@ onBeforeUnmount(() => {
     display: flex;
     gap: 2rem;
     align-items: center;
-    background-color: var(--card-bg-alt);
+    background: var(--card-bg-alt);
   }
 
   &-item {
@@ -205,7 +205,7 @@ onBeforeUnmount(() => {
       left: 0;
       width: 0;
       height: 2px;
-      background-color: var(--primary-color);
+      background: var(--primary-color);
       transition: width $transition-speed ease;
     }
 
@@ -243,7 +243,7 @@ onBeforeUnmount(() => {
       position: absolute;
       top: 100%;
       left: 0;
-      background-color: var(--card-bg-alt);
+      background: var(--card-bg-alt);
       box-shadow: 0 2px 10px var(--shadow);
       border-radius: 4px;
       min-width: 180px;
@@ -275,7 +275,7 @@ onBeforeUnmount(() => {
       transition: all 0.2s ease;
 
       &:hover {
-        background-color: var(--accent-lighter);
+        background: var(--accent-lighter);
         color: var(--primary-color);
       }
     }
@@ -361,7 +361,7 @@ onBeforeUnmount(() => {
       transition: all $transition-speed ease;
       padding: 0;
       margin: 0;
-      background-color: var(--card-bg-alt);
+      background: var(--card-bg-alt);
       box-shadow: 0 5px 10px var(--shadow);
 
       &.is-active {
@@ -407,7 +407,7 @@ onBeforeUnmount(() => {
           position: static;
           width: 100%;
           box-shadow: none;
-          background-color: var(--accent-lighter);
+          background: var(--accent-lighter);
           border-radius: 4px;
         }
 

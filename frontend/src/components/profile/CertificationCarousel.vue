@@ -82,7 +82,7 @@ const swiperBreakpoints = {
 
 .certification-section {
   padding: 4rem 2rem;
-  background-color: var(--card-bg-alt);
+  background: var(--card-bg-alt);
   border-radius: 4px;
   max-width: 1200px;
   width: 100%;
@@ -107,9 +107,9 @@ const swiperBreakpoints = {
   .title-divider {
     width: 80px;
     height: 3px;
-    background-color: var(--primary-color);
+    background: var(--primary-color);
     margin: 0 auto;
-    transition: background-color $transition-speed ease;
+    transition: all $transition-speed ease;
   }
 }
 
@@ -121,7 +121,7 @@ const swiperBreakpoints = {
   :deep(.swiper-button-next) {
     width: 40px;
     height: 40px;
-    background-color: var(--card-bg-alt);
+    background: var(--card-bg-alt);
     border-radius: 50%;
     box-shadow: 0 2px 10px var(--shadow);
     color: var(--primary-color);
@@ -133,7 +133,7 @@ const swiperBreakpoints = {
     }
 
     &:hover {
-      background-color: var(--primary-color);
+      background: var(--primary-color);
       color: white;
     }
   }
@@ -146,7 +146,7 @@ const swiperBreakpoints = {
     .swiper-pagination-bullet {
       width: 10px;
       height: 10px;
-      background-color: var(--text-color);
+      background: var(--text-color);
       opacity: 0.3;
       margin: 0 5px;
       transition: all 0.3s ease;
@@ -154,7 +154,7 @@ const swiperBreakpoints = {
 
     // 選中
     .swiper-pagination-bullet-active {
-      background-color: var(--primary-color);
+      background: var(--primary-color);
       opacity: 1;
       width: 12px;
       height: 12px;
@@ -171,7 +171,7 @@ const swiperBreakpoints = {
   cursor: default;
   display: flex;
   flex-direction: column;
-  background-color: var(--card-bg-alt);
+  background: var(--card-bg-alt);
   overflow: hidden;
   box-shadow: 0 5px 15px var(--shadow);
   height: 100%;
@@ -183,7 +183,7 @@ const swiperBreakpoints = {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--img-bg);
+    background: var(--img-bg);
 
     img {
       width: 100%;
