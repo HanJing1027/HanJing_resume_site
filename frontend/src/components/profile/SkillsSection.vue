@@ -79,9 +79,9 @@ const mainSkills = ref([
     title: '自主學習',
     icon: 'bx-book',
     description: [
-      '透過線上課程與文件高效自學',
-      '主動解決開發過程中的技術問題',
-      '快速吸收並實踐新知識於專案中',
+      '透過線上課、書籍、網路文章自學',
+      '主動查找解決開發過程中的各種問題',
+      '快速吸收並嘗試實踐新知識於專案中',
     ],
   },
 ])
@@ -131,15 +131,18 @@ const skillCategories = ref([
 
 .skills-section {
   padding: 4rem 2rem;
-  background-color: $background;
+  background-color: var(--card-bg-alt);
   border-radius: 4px;
   max-width: 1200px;
   width: 100%;
   margin: 2rem auto;
-  box-shadow: 0 8px 30px $shadow;
+  box-shadow: 0 8px 30px var(--shadow);
+  transition: all $transition-speed ease;
 
   h3 {
     font-weight: 500;
+    color: var(--dark-text);
+    transition: color $transition-speed ease;
   }
 }
 
@@ -150,16 +153,18 @@ const skillCategories = ref([
   h2 {
     font-size: 2.5rem;
     font-weight: 800;
-    color: $dark-text;
+    color: var(--dark-text);
     margin-bottom: 1rem;
     text-transform: uppercase;
+    transition: color $transition-speed ease;
   }
 
   .title-divider {
     width: 80px;
     height: 3px;
-    background-color: $primary-color;
+    background-color: var(--primary-color);
     margin: 0 auto;
+    transition: background-color $transition-speed ease;
   }
 }
 
@@ -181,8 +186,9 @@ const skillCategories = ref([
 
   h3 {
     font-size: 1.8rem;
-    color: $dark-text;
+    color: var(--dark-text);
     margin-bottom: 1.5rem;
+    transition: color $transition-speed ease;
   }
 }
 
@@ -196,8 +202,9 @@ const skillCategories = ref([
 .other-skills {
   h3 {
     font-size: 1.8rem;
-    color: $dark-text;
+    color: var(--dark-text);
     margin-bottom: 1.5rem;
+    transition: color $transition-speed ease;
   }
 }
 

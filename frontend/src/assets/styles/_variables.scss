@@ -1,13 +1,51 @@
-// 色彩
-$primary-color    : #ff7f50; // 珊瑚色
-// $primary-color : #d6907c;
-$text-color       : #4a4a4a; // 暖灰色
-$dark-text        : #2d3436; // 深碳灰
-$background       : #ffffff; // 白色
-$shadow           : rgba(0, 0, 0, 0.1);
-
-// 過渡時間
-$transition-speed: 0.3s;
-
-// 斷點
+// ======= SCSS基礎變數 =======
+$transition-speed : 0.3s;
 $mobile-breakpoint: 768px;
+
+// ======= CSS 變數 =======
+:root {
+  // 白天主題 (預設)
+  --primary-color : #ff7f50; // 精緻橙色
+  --text-color    : #555555; // 中性灰色文字
+  --dark-text     : #333333; // 深灰近黑
+  --background    : #f6f5f2; // 微橙背景
+  --card-bg       : #faf5f1; // 微橙卡片
+  --card-bg-alt   : #ffffff; // 純白卡片
+  --border-color  : #f2e6da; // 橙調邊框
+  --shadow        : rgba(150, 100, 60, 0.08); // 橙調陰影
+  --accent-light  : rgba(230, 126, 34, 0.15); // 主色15%透明度
+  --accent-lighter: rgba(230, 126, 34, 0.05); // 主色5%透明度
+
+  // 主題切換時的過渡效果
+  transition: all 0.3s ease-in-out;
+}
+
+// 暗色主題
+[data-theme="dark"] {
+  --primary-color : #ff7f50; // 保持主題色不變
+  --text-color    : #e0e0e0;
+  --dark-text     : #ffffff;
+  --background    : #121212;
+  --card-bg       : #1e1e1e;
+  --card-bg-alt   : #2d2d2d;
+  --border-color  : #333333;
+  --shadow        : rgba(0, 0, 0, 0.3);
+  --accent-light  : rgba(255, 127, 80, 0.25);
+  --accent-lighter: rgba(255, 127, 80, 0.1);
+}
+
+// ======= SCSS 變數 =======
+// 白天主題
+$primary-color: var(--primary-color);
+$text-color   : var(--text-color);
+$dark-text    : var(--dark-text);
+$background   : var(--background);
+$shadow       : var(--shadow);
+
+// 擴展白天主題
+$light-bg-1    : var(--card-bg);
+$light-bg-2    : var(--card-bg-alt);
+$light-accent  : var(--accent-light);
+$light-accent-2: var(--accent-lighter);
+$light-border  : var(--border-color);
+$light-shadow  : var(--shadow);

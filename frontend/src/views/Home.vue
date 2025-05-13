@@ -68,9 +68,11 @@ watch(
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f6f1e8;
+  background-color: var(--background);
+  color: var(--text-color);
   padding: 6rem 1rem 6rem;
   gap: 4vh;
+  transition: all $transition-speed ease;
 
   @media (max-width: $mobile-breakpoint) {
     padding: 2.5rem 1rem 2.5rem;

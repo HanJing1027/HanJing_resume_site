@@ -42,21 +42,23 @@ import avatarImg from '@/assets/images/avatar/avatar.jpg'
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  background-color: $background;
-  box-shadow: 0 8px 30px $shadow;
+  background-color: var(--card-bg-alt);
+  box-shadow: 0 8px 30px var(--shadow);
   border-radius: 4px;
   overflow: hidden;
   position: relative;
+  transition: all $transition-speed ease;
 }
 
 .profile-left {
   flex: 0 0 40%;
-  background-color: #f9f5f1;
+  background-color: var(--card-bg);
   padding: 3rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  transition: all $transition-speed ease;
 }
 
 .profile-image {
@@ -65,6 +67,9 @@ import avatarImg from '@/assets/images/avatar/avatar.jpg'
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 1.5rem;
+  border: 4px solid var(--background);
+  box-shadow: 0 5px 15px var(--shadow);
+  transition: all $transition-speed ease;
 
   img {
     width: 100%;
@@ -77,14 +82,16 @@ import avatarImg from '@/assets/images/avatar/avatar.jpg'
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: $dark-text;
+  color: var(--dark-text);
+  transition: color $transition-speed ease;
 }
 
 .profile-divider {
   width: 80px;
   height: 3px;
-  background-color: $primary-color;
+  background-color: var(--primary-color);
   margin: 1rem auto;
+  transition: background-color $transition-speed ease;
 }
 
 .profile-title {
@@ -92,8 +99,9 @@ import avatarImg from '@/assets/images/avatar/avatar.jpg'
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: $text-color;
+  color: var(--text-color);
   margin-bottom: 2rem;
+  transition: color $transition-speed ease;
 }
 
 .profile-right {
@@ -104,17 +112,19 @@ import avatarImg from '@/assets/images/avatar/avatar.jpg'
 .hello-title {
   font-size: 2.5rem;
   font-weight: 800;
-  color: $dark-text;
+  color: var(--dark-text);
   margin: 0 0 1rem;
   text-transform: uppercase;
+  transition: color $transition-speed ease;
 }
 
 .subtitle {
   font-size: 1.5rem;
-  color: $dark-text;
+  color: var(--dark-text);
   margin-bottom: 2rem;
   font-weight: 500;
   line-height: 1.25;
+  transition: color $transition-speed ease;
 }
 
 .action-buttons {
@@ -135,18 +145,19 @@ import avatarImg from '@/assets/images/avatar/avatar.jpg'
   }
 
   &.primary {
-    background-color: $primary-color;
+    background-color: var(--primary-color);
     color: white;
 
     &:hover {
-      background-color: darken($primary-color, 10%);
+      filter: brightness(90%);
     }
   }
 }
 
 .intro-text {
-  color: $text-color;
+  color: var(--text-color);
   line-height: 1.6;
+  transition: color $transition-speed ease;
 
   p {
     margin-bottom: 1rem;

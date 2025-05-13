@@ -52,6 +52,7 @@ onMounted(() => {
 
 .skill-item {
   margin-bottom: 1.5rem;
+  transition: all $transition-speed ease;
 }
 
 .skill-info {
@@ -61,29 +62,36 @@ onMounted(() => {
 
   .skill-name {
     font-weight: 600;
-    color: $dark-text;
+    color: var(--dark-text);
+    transition: color $transition-speed ease;
   }
 
   .skill-percentage {
-    color: $primary-color;
+    color: var(--primary-color);
     font-weight: 600;
+    transition: color $transition-speed ease;
   }
 }
 
 .skill-bar {
   height: 8px;
-  background-color: #e9ecef;
+  background-color: var(--border-color);
   border-radius: 100px;
   box-shadow:
-    inset 0 1px 3px rgba($dark-text, 0.2),
-    inset 0 0 2px rgba($dark-text, 0.1);
+    inset 0 1px 3px var(--shadow),
+    inset 0 0 2px rgba(0, 0, 0, 0.05);
+  transition:
+    background-color $transition-speed ease,
+    box-shadow $transition-speed ease;
 }
 
 .skill-progress {
   width: 0;
   height: 100%;
-  background-color: $primary-color;
+  background-color: var(--primary-color);
   border-radius: 100px;
-  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    width 1.5s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color $transition-speed ease;
 }
 </style>

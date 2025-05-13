@@ -50,13 +50,16 @@ const toggleCategory = (index) => {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  transition: all $transition-speed ease;
 }
 
 .skill-category {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: var(--card-bg-alt);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 10px var(--shadow);
+  border: 1px solid var(--border-color);
+  transition: all $transition-speed ease;
 }
 
 .category-header {
@@ -65,20 +68,21 @@ const toggleCategory = (index) => {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
-  background-color: rgba($primary-color, 0.1);
-  transition: background-color $transition-speed;
+  background-color: var(--accent-lighter);
+  transition: all $transition-speed ease;
 
   h4 {
     font-size: 1.2rem;
     font-weight: 500;
-    color: $dark-text;
+    color: var(--dark-text);
     margin: 0;
+    transition: color $transition-speed ease;
   }
 
   i {
     font-size: 1.4rem;
-    color: $primary-color;
-    transition: transform $transition-speed;
+    color: var(--primary-color);
+    transition: all $transition-speed ease;
 
     &.rotate {
       transform: rotate(180deg);
@@ -86,7 +90,7 @@ const toggleCategory = (index) => {
   }
 
   &:hover {
-    background-color: rgba($primary-color, 0.2);
+    background-color: var(--accent-light);
   }
 }
 
@@ -96,6 +100,7 @@ const toggleCategory = (index) => {
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 0.8rem;
   transition: all $transition-speed ease;
+  background-color: var(--card-bg-alt);
 }
 
 .skill-item {
@@ -105,21 +110,24 @@ const toggleCategory = (index) => {
   gap: 0.5rem;
   padding: 0.5rem 1rem;
   border-radius: 4px;
-  background-color: rgba($primary-color, 0.05);
-  transition: background-color $transition-speed;
+  background-color: var(--accent-lighter);
+  border: 1px solid var(--border-color);
+  transition: all $transition-speed ease;
 
   i {
-    color: $primary-color;
+    color: var(--primary-color);
     font-size: 1.2rem;
+    transition: color $transition-speed ease;
   }
 
   span {
     font-size: 0.9rem;
-    color: $text-color;
+    color: var(--text-color);
+    transition: color $transition-speed ease;
   }
 
   &:hover {
-    background-color: rgba($primary-color, 0.1);
+    background-color: var(--accent-light);
   }
 }
 

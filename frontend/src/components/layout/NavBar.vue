@@ -28,15 +28,14 @@
       >
         Projects
       </router-link>
+
+      <div class="navbar-item theme-toggle-wrapper">
+        <ThemeToggle />
+      </div>
     </div>
 
     <!-- 漢堡選單 -->
-    <button
-      class="navbar-burger"
-      :class="{ 'is-active': isMenuActive }"
-      @click="toggleMenu"
-      aria-label="選單"
-    >
+    <button class="navbar-burger" :class="{ 'is-active': isMenuActive }" @click="toggleMenu">
       <i class="bx" :class="isMenuActive ? 'bx-x' : 'bx-menu'"></i>
     </button>
   </nav>
@@ -45,6 +44,8 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+
+import ThemeToggle from '@/components/features/ThemeToggle.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -149,12 +150,18 @@ onBeforeUnmount(() => {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: $background;
-  box-shadow: 0 2px 10px $shadow;
+  background-color: var(--card-bg-alt);
+  box-shadow: 0 2px 10px var(--shadow);
   position: sticky;
   top: 0;
   z-index: 1000;
   transition: all $transition-speed ease;
+
+  .theme-toggle-wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+  }
 
   &-logo {
     .logo {
@@ -162,7 +169,7 @@ onBeforeUnmount(() => {
       font-size: 1.8rem;
       font-weight: 700;
       text-decoration: none;
-      color: $dark-text;
+      color: var(--dark-text);
       position: relative;
       transition: color $transition-speed ease;
     }
@@ -172,12 +179,13 @@ onBeforeUnmount(() => {
     display: flex;
     gap: 2rem;
     align-items: center;
+    background-color: var(--card-bg-alt);
   }
 
   &-item {
     cursor: pointer;
     text-decoration: none;
-    color: $text-color;
+    color: var(--text-color);
     font-weight: 600;
     font-size: 1.1rem;
     padding: 0.5rem 0;
@@ -187,7 +195,7 @@ onBeforeUnmount(() => {
 
     &:hover,
     &.active-link {
-      color: $primary-color;
+      color: var(--primary-color);
     }
 
     &::after {
@@ -197,7 +205,7 @@ onBeforeUnmount(() => {
       left: 0;
       width: 0;
       height: 2px;
-      background-color: $primary-color;
+      background-color: var(--primary-color);
       transition: width $transition-speed ease;
     }
 
@@ -223,7 +231,7 @@ onBeforeUnmount(() => {
         top: 50%;
         transform: translateY(-50%);
         transition: transform 0.3s ease;
-        font-size: 1.3rem; // 調整適合的大小
+        font-size: 1.3rem;
 
         &.is-open {
           transform: translateY(-50%) rotate(180deg);
@@ -235,8 +243,8 @@ onBeforeUnmount(() => {
       position: absolute;
       top: 100%;
       left: 0;
-      background-color: white;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      background-color: var(--card-bg-alt);
+      box-shadow: 0 2px 10px var(--shadow);
       border-radius: 4px;
       min-width: 180px;
       opacity: 0;
@@ -260,19 +268,19 @@ onBeforeUnmount(() => {
     .dropdown-item {
       display: block;
       padding: 0.7rem 1.2rem;
-      color: $text-color;
+      color: var(--text-color);
       text-decoration: none;
       text-transform: none;
       font-size: 0.95rem;
       transition: all 0.2s ease;
 
       &:hover {
-        background-color: rgba(0, 0, 0, 0.05);
-        color: $primary-color;
+        background-color: var(--accent-lighter);
+        color: var(--primary-color);
       }
     }
 
-    @media (min-width: $mobile-breakpoint + 1) {
+    @media (min-width: 769px) {
       &:hover .dropdown-menu {
         opacity: 1;
         visibility: visible;
@@ -290,18 +298,18 @@ onBeforeUnmount(() => {
   &-burger {
     display: none;
     cursor: pointer;
-    color: $text-color;
+    color: var(--text-color);
     background: transparent;
     border: none;
     padding: 0;
     transition: all $transition-speed ease;
 
     &:hover {
-      color: $primary-color;
+      color: var(--primary-color);
     }
 
     &.is-active {
-      color: $primary-color;
+      color: var(--primary-color);
     }
 
     i {
@@ -314,9 +322,8 @@ onBeforeUnmount(() => {
       transform: rotate(180deg);
     }
 
-    /* 新增這部分確保非活動狀態的顏色恢復 */
     &:not(.is-active) i {
-      color: $text-color;
+      color: var(--text-color);
       transform: rotate(0);
     }
   }
@@ -354,11 +361,11 @@ onBeforeUnmount(() => {
       transition: all $transition-speed ease;
       padding: 0;
       margin: 0;
-      background-color: $background;
-      box-shadow: 0 5px 10px $shadow;
+      background-color: var(--card-bg-alt);
+      box-shadow: 0 5px 10px var(--shadow);
 
       &.is-active {
-        max-height: 500px; // 增加高度以適應更多選單項
+        max-height: 500px;
         opacity: 1;
         visibility: visible;
         padding: 1rem 0;
@@ -400,7 +407,7 @@ onBeforeUnmount(() => {
           position: static;
           width: 100%;
           box-shadow: none;
-          background-color: rgba(0, 0, 0, 0.03);
+          background-color: var(--accent-lighter);
           border-radius: 4px;
         }
 

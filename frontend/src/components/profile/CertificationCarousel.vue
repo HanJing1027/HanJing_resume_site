@@ -82,12 +82,13 @@ const swiperBreakpoints = {
 
 .certification-section {
   padding: 4rem 2rem;
-  background-color: $background;
+  background-color: var(--card-bg-alt);
   border-radius: 4px;
   max-width: 1200px;
   width: 100%;
   margin: 2rem auto;
-  box-shadow: 0 8px 30px $shadow;
+  box-shadow: 0 8px 30px var(--shadow);
+  transition: all $transition-speed ease;
 }
 
 .section-title {
@@ -97,16 +98,18 @@ const swiperBreakpoints = {
   h2 {
     font-size: 2.5rem;
     font-weight: 800;
-    color: $dark-text;
+    color: var(--dark-text);
     margin-bottom: 1rem;
     text-transform: uppercase;
+    transition: color $transition-speed ease;
   }
 
   .title-divider {
     width: 80px;
     height: 3px;
-    background-color: $primary-color;
+    background-color: var(--primary-color);
     margin: 0 auto;
+    transition: background-color $transition-speed ease;
   }
 }
 
@@ -118,10 +121,11 @@ const swiperBreakpoints = {
   :deep(.swiper-button-next) {
     width: 40px;
     height: 40px;
-    background-color: white;
+    background-color: var(--card-bg-alt);
     border-radius: 50%;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    color: $primary-color; // 使用主題色
+    box-shadow: 0 2px 10px var(--shadow);
+    color: var(--primary-color);
+    transition: all $transition-speed ease;
 
     &:after {
       font-size: 18px;
@@ -129,7 +133,7 @@ const swiperBreakpoints = {
     }
 
     &:hover {
-      background-color: $primary-color;
+      background-color: var(--primary-color);
       color: white;
     }
   }
@@ -142,15 +146,15 @@ const swiperBreakpoints = {
     .swiper-pagination-bullet {
       width: 10px;
       height: 10px;
-      background-color: #cccccc;
-      opacity: 0.6;
+      background-color: var(--text-color);
+      opacity: 0.3;
       margin: 0 5px;
       transition: all 0.3s ease;
     }
 
     // 選中
     .swiper-pagination-bullet-active {
-      background-color: $primary-color;
+      background-color: var(--primary-color);
       opacity: 1;
       width: 12px;
       height: 12px;
@@ -167,11 +171,11 @@ const swiperBreakpoints = {
   cursor: default;
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: var(--card-bg-alt);
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px var(--shadow);
   height: 100%;
-  transition: all 0.3s ease;
+  transition: all $transition-speed ease;
 
   .cert-image {
     height: 300px;
@@ -203,7 +207,8 @@ const swiperBreakpoints = {
       font-weight: 600;
       margin-bottom: 0.8rem;
       text-align: center;
-      color: $dark-text;
+      color: var(--dark-text);
+      transition: color $transition-speed ease;
     }
   }
 }
@@ -236,3 +241,4 @@ const swiperBreakpoints = {
   }
 }
 </style>
+d

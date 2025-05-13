@@ -51,30 +51,33 @@ const openModal = () => {
 .skill-card {
   cursor: default;
   padding: 2rem;
-  background-color: white;
+  background-color: var(--card-bg-alt);
   border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
+  box-shadow: 0 5px 15px var(--shadow);
+  transition: all $transition-speed ease;
+  border: 1px solid var(--border-color);
 
   .skill-icon {
     font-size: 2.5rem;
-    color: $primary-color;
+    color: var(--primary-color);
     margin-bottom: 1.5rem;
     text-align: center;
+    transition: color $transition-speed ease;
   }
 
   h3 {
     font-size: 1.5rem;
     font-weight: 500;
-    color: $dark-text;
+    color: var(--dark-text);
     margin-bottom: 0;
     text-align: center;
+    transition: color $transition-speed ease;
   }
 
   .open-modal-btn {
     background: none;
     border: none;
-    color: $primary-color;
+    color: var(--primary-color);
     font-size: 0.9rem;
     font-weight: 500;
     padding: 0.5rem 0;
@@ -85,7 +88,7 @@ const openModal = () => {
     width: 100%;
     text-align: center;
     overflow: hidden;
-    transition: all 0.25s ease;
+    transition: all $transition-speed ease;
     opacity: 0.75;
 
     &::after {
@@ -95,8 +98,8 @@ const openModal = () => {
       left: 50%;
       width: 0;
       height: 1px;
-      background-color: $primary-color;
-      transition: all 0.3s ease;
+      background-color: var(--primary-color);
+      transition: all $transition-speed ease;
       transform: translateX(-50%);
     }
 
@@ -106,7 +109,7 @@ const openModal = () => {
       right: 50%;
       opacity: 0;
       transform: translateX(20px);
-      transition: all 0.3s ease;
+      transition: all $transition-speed ease;
     }
 
     &:hover {
@@ -146,10 +149,12 @@ const openModal = () => {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba($primary-color, 0.1);
+    background-color: var(--accent-lighter);
     border-radius: 50%;
     font-size: 2rem;
-    color: $primary-color;
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    transition: all $transition-speed ease;
   }
 }
 
@@ -167,18 +172,19 @@ const openModal = () => {
     position: relative;
     padding: 0.8rem 1rem 0.8rem 2.5rem;
     margin-bottom: 0.5rem;
-    color: $text-color;
-    background-color: rgba($primary-color, 0.03);
+    color: var(--text-color);
+    background-color: var(--accent-lighter);
     border-radius: 8px;
-    transition: all 0.2s ease;
+    transition: all $transition-speed ease;
+    border: 1px solid var(--border-color);
 
     &:hover {
-      background-color: rgba($primary-color, 0.07);
+      background-color: var(--accent-light);
     }
 
     &:before {
       content: '•';
-      color: $primary-color;
+      color: var(--primary-color);
       font-weight: bold;
       position: absolute;
       left: 1rem;
