@@ -117,6 +117,7 @@ onMounted(() => {
 @use '@/assets/styles/_variables.scss' as *;
 
 .profile-card {
+  cursor: default;
   display: flex;
   max-width: 1200px;
   width: 100%;
@@ -283,7 +284,6 @@ onMounted(() => {
 
 .subtitle {
   font-size: 1.5rem;
-  color: var(--dark-text);
   font-weight: 500;
   line-height: 1.4;
   transition: all $transition-speed ease;
@@ -295,17 +295,17 @@ onMounted(() => {
 
 .typed-text {
   display: inline-block;
-  color: var(--dark-text);
+  color: var(--primary-color);
 }
 
 .cursor {
   display: inline-block;
   width: 3px;
   height: 1.5rem;
-  background-color: var(--primary-color);
+  background-color: var(--dark-text);
   margin-left: 4px;
   border-radius: 1px;
-  box-shadow: 0 0 5px rgba(var(--primary-color-rgb), 0.5);
+  box-shadow: 0 0 5px rgba(var(--dark-text-rgb), 0.5);
   animation: blink 1.2s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
 
   &.typing {
