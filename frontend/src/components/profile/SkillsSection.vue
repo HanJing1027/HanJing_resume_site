@@ -1,31 +1,48 @@
 <template>
-  <div class="skills-section">
-    <div class="section-title">
-      <h2>Skills</h2>
-      <div class="title-divider"></div>
+  <section class="skills-section">
+    <div class="section-header">
+      <h2 class="section-title">Skills</h2>
+      <div class="title-underline">
+        <span class="line"></span>
+        <span class="dot"></span>
+        <span class="line"></span>
+      </div>
     </div>
 
     <!-- 主要技能展示 -->
-    <div class="skills-cards">
-      <SkillCard v-for="(skill, index) in mainSkills" :key="index" :skill="skill" />
+    <div class="skills-container main-skills">
+      <h3 class="container-title">主要技能</h3>
+      <div class="skills-cards">
+        <SkillCard
+          v-for="(skill, index) in mainSkills"
+          :key="index"
+          :skill="skill"
+          class="skill-card"
+        />
+      </div>
     </div>
 
     <!-- 技術能力展示 -->
-    <div class="tech-skills">
-      <h3>技術能力</h3>
-      <div class="skill-bars">
-        <TechSkill v-for="(tech, index) in techSkills" :key="index" :tech="tech" />
+    <div class="skills-container tech-skills">
+      <h3 class="container-title">技術能力</h3>
+      <div class="tech-skills-container">
+        <TechSkill
+          v-for="(tech, index) in techSkills"
+          :key="index"
+          :tech="tech"
+          class="tech-skill-item"
+        />
       </div>
     </div>
 
     <!-- 其他專業能力 -->
-    <div class="other-skills">
-      <h3>其他能力</h3>
+    <div class="skills-container other-skills">
+      <h3 class="container-title">其他能力</h3>
       <div class="skills-categories">
         <OtherSkill :skillCategories="skillCategories" />
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>
@@ -130,105 +147,164 @@ const skillCategories = ref([
 @use '@/assets/styles/_variables.scss' as *;
 
 .skills-section {
-  padding: 4rem 2rem;
-  background: var(--card-bg-alt);
-  border-radius: 4px;
+  padding: 5rem 2rem;
   max-width: 1200px;
   width: 100%;
-  margin: 2rem auto;
-  box-shadow: 0 8px 30px var(--shadow);
+  margin: 3rem auto;
+  background: linear-gradient(to bottom, var(--card-bg-alt) 0%, var(--card-bg) 100%);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px var(--shadow);
   transition: all $transition-speed ease;
-
-  h3 {
-    font-weight: 500;
-    color: var(--dark-text);
-    transition: color $transition-speed ease;
-  }
+  overflow: hidden;
 }
 
-.section-title {
+// 區塊標題設計
+.section-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 
-  h2 {
+  .section-title {
     font-size: 2.5rem;
     font-weight: 800;
     color: var(--dark-text);
     margin-bottom: 1rem;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    transition: color $transition-speed ease;
+    transition: all $transition-speed ease;
   }
 
-  .title-divider {
-    width: 80px;
-    height: 3px;
-    background: var(--primary-color);
-    margin: 0 auto;
-    transition: all $transition-speed ease;
+  .title-underline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+
+    .line {
+      height: 2px;
+      width: 50px;
+      background-color: var(--primary-color);
+    }
+
+    .dot {
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+    }
+  }
+
+  .section-subtitle {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    font-weight: 400;
+    opacity: 0.8;
+  }
+}
+
+// 各技能容器共用樣式
+.skills-container {
+  margin-bottom: 4rem;
+  padding: 2rem;
+  background: var(--card-bg-alt);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(var(--dark-text-rgb), 0.05);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .container-title {
+    position: relative;
+    font-size: 1.8rem;
+    color: var(--dark-text);
+    margin-bottom: 2rem;
+    padding-bottom: 0.8rem;
+    display: inline-block;
+    font-weight: 600;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 40%;
+      height: 3px;
+      background-color: var(--primary-color);
+      border-radius: 2px;
+    }
   }
 }
 
 // 主要技能卡片
-.skills-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
+.main-skills {
+  .skills-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
 
-  &:hover {
-    cursor: default;
+    .skill-card {
+      transition: transform $transition-speed ease;
+
+      &:hover {
+        transform: translateY(-8px);
+      }
+    }
   }
 }
 
 // 技術能力進度條
 .tech-skills {
-  margin-bottom: 3rem;
+  .tech-skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem 3rem;
 
-  h3 {
-    font-size: 1.8rem;
-    color: var(--dark-text);
-    margin-bottom: 1.5rem;
-    transition: color $transition-speed ease;
+    .tech-skill-item {
+      margin-bottom: 0.5rem;
+    }
   }
 }
 
-.skill-bars {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-// 其他專業能力 - 折疊設計
+// 其他專業能力
 .other-skills {
-  h3 {
-    font-size: 1.8rem;
-    color: var(--dark-text);
-    margin-bottom: 1.5rem;
-    transition: color $transition-speed ease;
+  .skills-categories {
+    display: grid;
+    gap: 2rem;
+    transition: all $transition-speed ease;
   }
 }
 
-.skills-categories {
-  display: grid;
-  gap: 1rem;
-}
-
-// 響應式設計
 @media (max-width: $mobile-breakpoint) {
   .skills-section {
-    padding: 3rem 1.5rem;
+    padding: 3rem 1.2rem;
+    border-radius: 8px;
   }
 
-  .skills-cards {
+  .section-header {
+    .section-title {
+      font-size: 2.2rem;
+    }
+
+    .title-underline .line {
+      width: 30px;
+    }
+  }
+
+  .skills-container {
+    margin-bottom: 2.5rem;
+    padding: 1.2rem;
+
+    .container-title {
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .main-skills .skills-cards,
+  .tech-skills .tech-skills-container {
     grid-template-columns: 1fr;
-  }
-
-  .skill-bars {
-    grid-template-columns: 1fr;
-  }
-
-  .skills-categories {
-    gap: 0.8rem;
+    gap: 1.5rem;
   }
 }
 </style>
