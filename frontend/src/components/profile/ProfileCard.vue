@@ -32,9 +32,8 @@
           擁有扎實的學習能力和解決問題的熱情，透過專案實作不斷精進自己的前端技術。期待在實務中累積更多經驗，並為團隊貢獻實際價值。
         </p>
       </div>
-
       <div class="action-buttons">
-        <router-link to="/projects" class="btn primary">專案作品</router-link>
+        <router-link to="/projects" class="project-btn">專案作品</router-link>
       </div>
     </div>
   </div>
@@ -115,6 +114,7 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 @use '@/assets/styles/_variables.scss' as *;
+@use '@/assets/styles/_mixins' as *;
 
 .profile-card {
   cursor: default;
@@ -351,49 +351,12 @@ onMounted(() => {
   margin-top: 1rem;
   position: relative;
   z-index: 1;
-}
 
-.btn {
-  padding: 0.8rem 2rem;
-  border-radius: 100px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all $transition-speed ease;
-  letter-spacing: 0.5px;
+  .project-btn {
+    @include base-button(0.8rem 1.8rem);
 
-  @media (max-width: $mobile-breakpoint) {
-    padding: 0.7rem 1.7rem;
-  }
-
-  &.primary {
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-color-dark));
-    color: white;
-    border: none;
-    transform: translateY(0);
-    position: relative;
-    overflow: hidden;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.7s ease;
-    }
-
-    &:hover {
-      transform: translateY(-3px);
-
-      &::before {
-        left: 100%;
-      }
-    }
-
-    &:active {
-      transform: translateY(-1px);
+    @media (max-width: $mobile-breakpoint) {
+      padding: 0.7rem 1.7rem;
     }
   }
 }
