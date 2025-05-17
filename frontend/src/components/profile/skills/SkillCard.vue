@@ -3,7 +3,12 @@
     <!-- 卡片堆 -->
     <div class="card-deck">
       <div class="deck-cards" ref="deckCardsRef">
-        <div v-for="(i, index) in 3" :key="index" class="deck-card" />
+        <div
+          v-for="(i, index) in 3"
+          :key="index"
+          class="deck-card"
+          :class="{ 'no-card': remainingSkills.length === 0 }"
+        />
       </div>
       <button class="draw-card-btn" @click="drawCard" :disabled="isDrawingCard">
         <i class="bx bx-chevron-right"></i>
@@ -309,6 +314,20 @@ onMounted(() => {
 
       &:nth-child(3) {
         transform: translateY(8px) scale(0.96) rotateZ(1deg);
+      }
+
+      &.no-card {
+        background: transparent;
+        // box-shadow: none;
+        border: 2px dashed var(--primary-color);
+
+        &:nth-child(2) {
+          display: none;
+        }
+
+        &:nth-child(3) {
+          display: none;
+        }
       }
     }
 
