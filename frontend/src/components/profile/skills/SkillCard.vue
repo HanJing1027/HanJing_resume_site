@@ -469,7 +469,7 @@ onMounted(() => {
 
       // 基於class的卡片翻轉
       &.flipped {
-        transform: rotateY(180deg) !important;
+        transform: rotateY(180deg);
       }
     }
 
