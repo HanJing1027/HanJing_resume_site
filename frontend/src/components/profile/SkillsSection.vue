@@ -12,14 +12,7 @@
     <!-- 主要技能展示 -->
     <div class="skills-container main-skills">
       <h3 class="container-title">主要技能</h3>
-      <div class="skills-cards">
-        <SkillCard
-          v-for="(skill, index) in mainSkills"
-          :key="index"
-          :skill="skill"
-          class="skill-card"
-        />
-      </div>
+      <SkillCard :skills="mainSkills" />
     </div>
 
     <!-- 技術能力展示 -->
@@ -87,9 +80,8 @@ const mainSkills = ref([
     icon: 'bx-mobile',
     description: [
       '注重各裝置的瀏覽體驗與操作流暢度',
-      '熟悉響應式網頁的排版與布局技巧',
+      '了解響應式網頁的排版與布局技巧',
       '能根據不同螢幕尺寸調整設計與排版',
-      '確保網站在桌機、平板與手機等媒介中保持一致性與可用性',
     ],
   },
   {
