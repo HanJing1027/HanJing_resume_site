@@ -1,145 +1,256 @@
 <template>
-  <div class="skill-categories">
-    <div v-for="(category, index) in localCategories" :key="index" class="skill-category">
-      <!-- 類別標題 點擊時切換展開/收合狀態 -->
-      <div class="category-header" @click="toggleCategory(index)">
-        <h4>{{ category.title }}</h4>
-        <i class="bx bx-chevron-down" :class="{ rotate: category.isOpen }"></i>
-      </div>
+  <div class="skills-container">
+    <div class="category-slider">
+      <button
+        v-for="(category, index) in skillCategories"
+        :key="index"
+        :class="['category-pill', { active: activeCategory === index }]"
+        @click="setActiveCategory(index)"
+      >
+        <i v-if="category.icon" :class="['bx', category.icon]"></i>
+        {{ category.title }}
+      </button>
+    </div>
 
-      <!-- 類別內容 isOpen狀態顯示/隱藏 -->
-      <div v-show="category.isOpen" class="category-content">
-        <div v-for="(skill, skillIndex) in category.skills" :key="skillIndex" class="skill-item">
-          <i :class="['bx', skill.icon]"></i>
-          <span>{{ skill.name }}</span>
+    <transition name="fade" mode="out-in">
+      <div v-if="currentCategory" class="skills-content" :key="activeCategory">
+        <div class="skills-description" v-if="currentCategory.description">
+          <p>{{ currentCategory.description }}</p>
+        </div>
+
+        <div class="skills-mastery">
+          <div
+            v-for="(skill, skillIndex) in currentCategory.skills"
+            :key="skillIndex"
+            class="skill-item"
+          >
+            <div class="skill-info">
+              <div class="skill-icon">
+                <i :class="['bx', skill.icon]"></i>
+              </div>
+              <div class="skill-details">
+                <h4 class="skill-name">{{ skill.name }}</h4>
+                <p v-if="skill.description" class="skill-description">{{ skill.description }}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 
 const props = defineProps({
   skillCategories: {
     type: Array,
     required: true,
   },
+  defaultCategory: {
+    type: Number,
+    default: 0,
+  },
 })
 
-const localCategories = ref([])
+const activeCategory = ref(props.defaultCategory)
 
-// 初始化類別數據
-onMounted(() => {
-  localCategories.value = props.skillCategories.map((category) => ({
-    ...category,
-    isOpen: false, // 預設為所有類別都是收合的
-  }))
+const currentCategory = computed(() => {
+  if (activeCategory.value >= 0 && activeCategory.value < props.skillCategories.length) {
+    return props.skillCategories[activeCategory.value]
+  }
+  return null
 })
 
-const toggleCategory = (index) => {
-  localCategories.value[index].isOpen = !localCategories.value[index].isOpen
+const setActiveCategory = (index) => {
+  activeCategory.value = index
 }
+
+onMounted(() => {
+  if (props.skillCategories.length > 0 && activeCategory.value === -1) {
+    activeCategory.value = 0
+  }
+})
 </script>
 
 <style lang="scss" scoped>
 @use '@/assets/styles/_variables.scss' as *;
 
-.skill-categories {
+.skills-container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  transition: all $transition-speed ease;
-}
-
-.skill-category {
-  background: var(--card-bg-alt);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 10px var(--shadow);
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   border: 1px solid var(--border-color);
-  transition: all $transition-speed ease;
 }
 
-.category-header {
-  cursor: pointer;
+.category-slider {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.5rem;
-  background: var(--accent-lighter);
-  transition: all $transition-speed ease;
+  overflow-x: auto;
+  padding: 0.5rem 0;
+  margin-bottom: 2rem;
+  scrollbar-width: none; /* Firefox */
+  gap: 0.75rem;
 
-  h4 {
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: var(--dark-text);
-    margin: 0;
-    transition: color $transition-speed ease;
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
   }
 
-  i {
-    font-size: 1.4rem;
-    color: var(--primary-color);
-    transition: all $transition-speed ease;
+  .category-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent-lighter);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    cursor: pointer;
 
-    &.rotate {
-      transform: rotate(180deg);
+    i {
+      font-size: 1.1rem;
+    }
+
+    &:hover {
+      background: var(--accent-light);
+      transform: translateY(-2px);
+    }
+
+    &.active {
+      background: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+      box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.3);
     }
   }
+}
 
-  &:hover {
-    background: var(--accent-light);
+.skills-content {
+  flex: 1;
+}
+
+.skills-description {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--accent-lightest);
+  border-radius: 10px;
+  border-left: 4px solid var(--primary-color);
+
+  p {
+    color: var(--text-color);
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
 }
 
-.category-content {
-  padding: 0.5rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 0.8rem;
-  transition: all $transition-speed ease;
-  background: var(--card-bg-alt);
+.skills-mastery {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 .skill-item {
   cursor: default;
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem;
   background: var(--accent-lighter);
+  border-radius: 12px;
   border: 1px solid var(--border-color);
-  transition: all $transition-speed ease;
-
-  i {
-    color: var(--primary-color);
-    font-size: 1.2rem;
-    transition: color $transition-speed ease;
-  }
-
-  span {
-    font-size: 0.9rem;
-    color: var(--text-color);
-    transition: color $transition-speed ease;
-  }
+  transition: all 0.3s ease;
 
   &:hover {
-    background: var(--accent-light);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.skill-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.skill-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 12px;
+  font-size: 1.5rem;
+}
+
+.skill-details {
+  flex: 1;
+
+  .skill-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--dark-text);
+  }
+
+  .skill-description {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+}
+
+/* 過渡動畫 */
+.fade-enter-active,
+.fade-leave-active {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+@media (max-width: 992px) {
+  .skills-container {
+    padding: 1.5rem;
+  }
+
+  .category-slider {
+    justify-content: flex-start;
+    padding-bottom: 0.5rem;
   }
 }
 
 @media (max-width: $mobile-breakpoint) {
-  .category-content {
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  .skills-container {
+    padding: 1.25rem;
   }
 
-  .skill-item {
-    span {
-      line-height: 1.5;
-    }
+  .skill-info {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .skill-icon {
+    margin: 0 auto;
+  }
+
+  .skill-details {
+    width: 100%;
+    text-align: center;
   }
 }
 </style>
