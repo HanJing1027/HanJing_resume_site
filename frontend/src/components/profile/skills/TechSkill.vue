@@ -45,51 +45,145 @@ onMounted(() => {
     observer.observe(skillItemRef.value) // 指定觀察的 DOM
   }
 })
+
+onBeforeUnmount(() => {
+  // 新增：元件卸載時清理 observer
+  if (observer) {
+    observer.disconnect()
+  }
+})
 </script>
 
 <style lang="scss" scoped>
 @use '@/assets/styles/_variables.scss' as *;
 
 .skill-item {
-  margin-bottom: 1.5rem;
+  cursor: default;
+  margin-bottom: 2rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
   transition: all $transition-speed ease;
+  border-left: 3px solid transparent;
+
+  &:hover {
+    border-left: 3px solid var(--primary-color);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transform: translateX(5px);
+  }
 }
 
 .skill-info {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
 
   .skill-name {
-    font-weight: 600;
+    font-weight: 700;
     color: var(--dark-text);
     transition: color $transition-speed ease;
+    font-size: 1.05rem;
+    letter-spacing: 0.3px;
   }
 
   .skill-percentage {
     color: var(--primary-color);
     font-weight: 600;
     transition: color $transition-speed ease;
+    background-color: $bg-lighter;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(5px);
+    animation: fadeIn 0.5s forwards;
+    animation-delay: 1s;
   }
 }
 
 .skill-bar {
   height: 8px;
   background: var(--border-color);
-  border-radius: 100px;
-  box-shadow:
-    inset 0 1px 3px var(--shadow),
-    inset 0 0 2px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  box-shadow: inset 0 1px 3px var(--shadow);
+  overflow: hidden;
+  position: relative;
   transition: all $transition-speed ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    opacity: 0;
+  }
+
+  &:hover::after {
+    opacity: 1;
+    animation: shimmer 2s infinite;
+  }
 }
 
 .skill-progress {
   width: 0;
   height: 100%;
-  background: var(--primary-color);
-  border-radius: 100px;
-  transition:
-    width 1.5s cubic-bezier(0.4, 0, 0.2, 1),
-    background-color $transition-speed ease;
+  background: linear-gradient(
+    90deg,
+    var(--primary-color) 0%,
+    var(--primary-color-light, var(--primary-color)) 120%
+  );
+  border-radius: 10px;
+  position: relative;
+  transition: width 1.8s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #ffffff69, transparent);
+    transition: left 0.7s ease;
+    animation: flowLight 2.5s ease-in-out infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes flowLight {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
 }
 </style>

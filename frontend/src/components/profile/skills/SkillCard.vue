@@ -318,7 +318,6 @@ onMounted(() => {
 
       &.no-card {
         background: transparent;
-        // box-shadow: none;
         border: 2px dashed var(--primary-color);
 
         &:nth-child(2) {
