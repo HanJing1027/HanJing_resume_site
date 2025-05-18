@@ -17,7 +17,7 @@
         :breakpoints="swiperBreakpoints"
         :pagination="{ clickable: true }"
         :navigation="true"
-        :autoplay="{ delay: 4000, disableOnInteraction: false }"
+        :autoplay="{ delay: 4000, disableOnInteraction: true }"
         :loop="true"
         class="certification-swiper"
       >
