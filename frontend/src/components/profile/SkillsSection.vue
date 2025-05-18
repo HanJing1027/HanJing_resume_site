@@ -261,7 +261,7 @@ const skillCategories = ref([
 // 其他專業能力
 .other-skills {
   .skills-categories {
-    display: grid;
+    display: block;
     gap: 2rem;
     transition: all $transition-speed ease;
   }

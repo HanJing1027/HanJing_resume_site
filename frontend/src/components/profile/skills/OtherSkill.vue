@@ -1,256 +1,238 @@
 <template>
-  <div class="skills-container">
-    <div class="category-slider">
-      <button
-        v-for="(category, index) in skillCategories"
-        :key="index"
-        :class="['category-pill', { active: activeCategory === index }]"
-        @click="setActiveCategory(index)"
-      >
-        <i v-if="category.icon" :class="['bx', category.icon]"></i>
-        {{ category.title }}
-      </button>
-    </div>
-
-    <transition name="fade" mode="out-in">
-      <div v-if="currentCategory" class="skills-content" :key="activeCategory">
-        <div class="skills-description" v-if="currentCategory.description">
-          <p>{{ currentCategory.description }}</p>
+  <div class="other-skills-wrapper">
+    <div v-for="(category, index) in skillCategories" :key="index" class="skill-category">
+      <div class="category-header">
+        <h4 class="category-title">{{ category.title }}</h4>
+        <div class="title-decoration">
+          <span class="dot"></span>
+          <span class="line"></span>
         </div>
+      </div>
 
-        <div class="skills-mastery">
-          <div
-            v-for="(skill, skillIndex) in currentCategory.skills"
-            :key="skillIndex"
-            class="skill-item"
-          >
-            <div class="skill-info">
-              <div class="skill-icon">
-                <i :class="['bx', skill.icon]"></i>
-              </div>
-              <div class="skill-details">
-                <h4 class="skill-name">{{ skill.name }}</h4>
-                <p v-if="skill.description" class="skill-description">{{ skill.description }}</p>
-              </div>
+      <div class="skills-container">
+        <div v-for="(skill, skillIndex) in category.skills" :key="skillIndex" class="skill-item">
+          <div class="skill-icon-wrapper">
+            <div class="skill-icon">
+              <i :class="['bx', skill.icon]"></i>
             </div>
+            <div class="icon-glow"></div>
+          </div>
+          <div class="skill-content">
+            <div class="skill-name">{{ skill.name }}</div>
           </div>
         </div>
       </div>
-    </transition>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
-
-const props = defineProps({
+defineProps({
   skillCategories: {
     type: Array,
     required: true,
   },
-  defaultCategory: {
-    type: Number,
-    default: 0,
-  },
-})
-
-const activeCategory = ref(props.defaultCategory)
-
-const currentCategory = computed(() => {
-  if (activeCategory.value >= 0 && activeCategory.value < props.skillCategories.length) {
-    return props.skillCategories[activeCategory.value]
-  }
-  return null
-})
-
-const setActiveCategory = (index) => {
-  activeCategory.value = index
-}
-
-onMounted(() => {
-  if (props.skillCategories.length > 0 && activeCategory.value === -1) {
-    activeCategory.value = 0
-  }
 })
 </script>
 
 <style lang="scss" scoped>
 @use '@/assets/styles/_variables.scss' as *;
 
-.skills-container {
-  display: flex;
-  flex-direction: column;
-  background: var(--card-bg);
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-  border: 1px solid var(--border-color);
-}
-
-.category-slider {
-  display: flex;
-  overflow-x: auto;
-  padding: 0.5rem 0;
-  margin-bottom: 2rem;
-  scrollbar-width: none; /* Firefox */
-  gap: 0.75rem;
-
-  &::-webkit-scrollbar {
-    display: none; /* Chrome, Safari */
-  }
-
-  .category-pill {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--accent-lighter);
-    border: 1px solid var(--border-color);
-    color: var(--text-color);
-    padding: 0.75rem 1.25rem;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    white-space: nowrap;
-    transition: all 0.3s ease;
-    cursor: pointer;
-
-    i {
-      font-size: 1.1rem;
-    }
-
-    &:hover {
-      background: var(--accent-light);
-      transform: translateY(-2px);
-    }
-
-    &.active {
-      background: var(--primary-color);
-      color: white;
-      border-color: var(--primary-color);
-      box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.3);
-    }
-  }
-}
-
-.skills-content {
-  flex: 1;
-}
-
-.skills-description {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: var(--accent-lightest);
-  border-radius: 10px;
-  border-left: 4px solid var(--primary-color);
-
-  p {
-    color: var(--text-color);
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-}
-
-.skills-mastery {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.skill-item {
+.other-skills-wrapper {
   cursor: default;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  padding: 1.25rem;
-  background: var(--accent-lighter);
+  gap: 3rem;
+}
+
+.skill-category {
+  position: relative;
+  background: var(--card-bg);
   border-radius: 12px;
-  border: 1px solid var(--border-color);
-  transition: all 0.3s ease;
+  padding: 1.8rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 4px 0 0 4px;
+  }
 
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    .category-title {
+      transform: translateX(5px);
+    }
+
+    .title-decoration {
+      .line {
+        width: 90px;
+      }
+    }
   }
 }
 
-.skill-info {
+.category-header {
+  margin-bottom: 2rem;
+}
+
+.category-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--dark-text);
+  margin-bottom: 0.8rem;
+  padding-left: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.title-decoration {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-left: 0.8rem;
+
+  .dot {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+  }
+
+  .line {
+    height: 2px;
+    width: 60px;
+    background-color: var(--primary-color);
+    opacity: 0.7;
+    transition: width 0.3s ease;
+  }
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-item {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: var(--card-bg-alt);
+  transition: all 0.3s ease;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+
+    &::after {
+      width: 100%;
+    }
+
+    .skill-icon {
+      transform: rotate(10deg) scale(1.1);
+      background: var(--primary-color);
+    }
+
+    .icon-glow {
+      opacity: 0.15;
+      transform: scale(1.5);
+    }
+
+    .skill-name {
+      transform: translateX(5px);
+      color: var(--dark-text);
+    }
+  }
+}
+
+.skill-icon-wrapper {
+  position: relative;
 }
 
 .skill-icon {
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 50px;
-  height: 50px;
-  background: var(--primary-color);
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, darken(#4a6bff, 15%) 100%);
   color: white;
-  border-radius: 12px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 2;
 }
 
-.skill-details {
-  flex: 1;
-
-  .skill-name {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-    color: var(--dark-text);
-  }
-
-  .skill-description {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-  }
-}
-
-/* 過渡動畫 */
-.fade-enter-active,
-.fade-leave-active {
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
+.icon-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background: var(--primary-color);
+  border-radius: 50%;
   opacity: 0;
-  transform: translateY(10px);
+  filter: blur(10px);
+  transition: all 0.4s ease;
+  z-index: 1;
 }
 
-@media (max-width: 992px) {
-  .skills-container {
-    padding: 1.5rem;
-  }
+.skill-content {
+  flex: 1;
+}
 
-  .category-slider {
-    justify-content: flex-start;
-    padding-bottom: 0.5rem;
-  }
+.skill-name {
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
 @media (max-width: $mobile-breakpoint) {
   .skills-container {
-    padding: 1.25rem;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 1rem;
   }
 
-  .skill-info {
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: center;
-    gap: 0.75rem;
+  .skill-item {
+    padding: 0.8rem;
   }
 
   .skill-icon {
-    margin: 0 auto;
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
   }
 
-  .skill-details {
-    width: 100%;
-    text-align: center;
+  .skill-name {
+    font-size: 0.95rem;
+  }
+
+  .category-title {
+    font-size: 1.3rem;
   }
 }
 </style>
