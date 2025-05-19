@@ -89,6 +89,10 @@ const toggleCategory = (index) => {
   }
 
   &:hover {
+    .title-decoration .line {
+      width: 110px;
+    }
+
     .toggle-icon {
       color: var(--primary-color);
     }
