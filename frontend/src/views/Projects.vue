@@ -1,27 +1,10 @@
 <template>
   <div class="projects-container">
-    <div class="card-wrapper">
-      <ProjectCard
-        type="design"
-        iconClass="bx bxs-color"
-        title="前往設計作品"
-        description="探索我的平面設計、UI/UX與視覺創意專案"
-        arrowDirection="left"
-      />
-      <ProjectCard
-        type="web"
-        iconClass="bx bx-windows"
-        title="前往網頁作品"
-        description="瀏覽我的網頁開發、前端與互動專案"
-        arrowDirection="right"
-      />
-    </div>
+    <transition name="fade" mode="out-in">
+      <router-view />
+    </transition>
   </div>
 </template>
-
-<script setup>
-import ProjectCard from '@/components/projects/ProjectCard.vue'
-</script>
 
 <style lang="scss" scoped>
 @use '@/assets/styles/_variables.scss' as *;
@@ -31,29 +14,19 @@ import ProjectCard from '@/components/projects/ProjectCard.vue'
   min-height: 100vh;
   color: var(--text-color);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   background: var(--background);
+  position: relative;
 }
 
-.card-wrapper {
-  display: flex;
-  gap: 2.5rem;
-  justify-content: center;
-
-  @media (max-width: $mobile-breakpoint) {
-    flex-direction: column;
-    align-items: center;
-  }
+// 過場動畫樣式
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
 }
-
-@media (max-width: 500px) {
-  .projects-container {
-    padding: 1rem;
-  }
-
-  .card-wrapper {
-    gap: 1.5rem;
-  }
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

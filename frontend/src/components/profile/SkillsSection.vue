@@ -185,13 +185,6 @@ const skillCategories = ref([
       background-color: var(--primary-color);
     }
   }
-
-  .section-subtitle {
-    color: var(--text-color);
-    font-size: 1.1rem;
-    font-weight: 400;
-    opacity: 0.8;
-  }
 }
 
 // 各技能容器共用樣式
