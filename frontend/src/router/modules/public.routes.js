@@ -28,6 +28,17 @@ export default [
           title: '設計作品集',
         },
       },
+      {
+        path: 'design/:id',
+        name: 'ProjectDetail',
+        component: () => import('@/views/ProjectDetailPage.vue'),
+        meta: {
+          title: '作品詳情',
+        },
+        beforeEnter: (to, from, next) => {
+          next()
+        },
+      },
       // {
       //   path: 'web',
       //   name: 'WebProjects',
@@ -35,7 +46,7 @@ export default [
       //   meta: {
       //     title: '網頁作品集',
       //   },
-      // },
     ],
+    // },
   },
 ]
