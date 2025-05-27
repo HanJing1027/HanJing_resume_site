@@ -1,8 +1,8 @@
 <template>
-  <div class="design-projects-container">
+  <div class="web-projects-container">
     <!-- 頂部橫幅 -->
     <div class="projects-header">
-      <h2 class="header-title">設計作品集</h2>
+      <h2 class="header-title">網頁作品集</h2>
       <div class="title-underline">
         <span class="line"></span>
         <span class="dot"></span>
@@ -20,7 +20,7 @@
         <i class="bx bx-grid-alt"></i>全部作品
       </button>
       <button
-        v-for="category in categories"
+        v-for="category in webCategories"
         :key="category.id"
         class="category-btn"
         :class="{ active: selectedCategory === category.id }"
@@ -32,15 +32,10 @@
 
     <!-- 專案卡片網格 -->
     <div class="projects-grid">
-      <div
-        v-for="project in projects"
-        :key="project.id"
-        class="design-project-item"
-        @click="openProjectDetail(project)"
-      >
+      <div v-for="project in filteredProjects" :key="project.id" class="web-project-item">
         <div class="project-image">
           <img :src="project.imageUrl" :alt="project.title" loading="lazy" />
-          <div class="project-overlay">
+          <div class="project-overlay" @click="openProjectDetail(project)">
             <span class="view-project">
               <i class="bx bx-show-alt"></i>
               查看專案
@@ -68,10 +63,23 @@
             <div class="project-tech">
               <div class="tech-tags">
                 <span v-for="(tech, index) in project.technologies" :key="index" class="tech-tag">
-                  <i class="bx bx-purchase-tag-alt"></i>
+                  <i class="bx bx-code-block"></i>
                   {{ tech }}
                 </span>
               </div>
+            </div>
+
+            <div class="project-links">
+              <a
+                v-if="project.link"
+                :href="project.link"
+                target="_blank"
+                class="project-link-btn"
+                @click.stop
+              >
+                <i class="bx bx-link-external"></i>
+                Link
+              </a>
             </div>
           </div>
         </div>
@@ -87,7 +95,7 @@
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { allProjects, categories } from '@/data/designProjectsData' // 添加這行導入
+import { allWebProjects, webCategories } from '@/data/webProjectsData'
 
 const route = useRoute()
 const router = useRouter()
@@ -99,30 +107,24 @@ const goBack = () => {
 const selectedCategory = ref(null)
 
 // 依據選定的分類過濾專案
-const projects = computed(() => {
+const filteredProjects = computed(() => {
   if (!selectedCategory.value || selectedCategory.value === 'all') {
-    return allProjects.value
+    return allWebProjects.value
   }
-
-  return allProjects.value.filter((project) => project.categories.includes(selectedCategory.value))
+  return allWebProjects.value.filter((project) =>
+    project.categories.includes(selectedCategory.value)
+  )
 })
 
-// 設置分類並更新 URL - 已移除動畫相關邏輯
 const setCategory = (categoryId) => {
   selectedCategory.value = categoryId
-
   // 更新 URL 查詢參數
-  if (categoryId) {
-    router.replace({ query: { ...route.query, category: categoryId } })
-  } else {
-    // 移除查詢參數
-    const query = { ...route.query }
-    delete query.category
-    router.replace({ query })
-  }
+  router.replace({
+    query: categoryId ? { category: categoryId } : {},
+  })
 }
 
-// 監聽 URL 查詢參數變化來更新選擇的分類 - 已移除動畫相關邏輯
+// 監聽路由變化
 watch(
   () => route.query.category,
   (newCategory) => {
@@ -132,19 +134,20 @@ watch(
 )
 
 const getCategoryName = (categoryId) => {
-  const category = categories.find((c) => c.id === categoryId)
+  const category = webCategories.find((c) => c.id === categoryId)
   return category ? category.name : categoryId
 }
 
 const openProjectDetail = (project) => {
+  // 導向到網頁專案詳情頁面
   router.push({
-    name: 'ProjectDetail',
+    name: 'WebProjectDetail',
     params: { id: project.id },
   })
 }
 
 onMounted(() => {
-  // 初始化時檢查 URL 查詢參數 - 已移除動畫相關邏輯
+  // 初始化時檢查 URL 查詢參數
   if (route.query.category) {
     selectedCategory.value = route.query.category
   }
@@ -153,55 +156,14 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 @use '@/assets/styles/_variables.scss' as *;
-@use '@/assets/styles/_mixins.scss' as mixins;
+@use '@/assets/styles/_mixins.scss' as *;
 
-.design-projects-container {
+.web-projects-container {
+  cursor: default;
   width: 100%;
   max-width: 1200px;
   margin: 120px auto 60px;
   padding: 0 1.5rem;
-}
-
-// 返回按鈕樣式
-.back-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: var(--primary-color);
-  color: white;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  z-index: 100;
-  transition: all 0.3s ease;
-
-  i {
-    font-size: 1.5rem;
-  }
-
-  &:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-  }
-}
-
-@media (max-width: $mobile-breakpoint) {
-  .floating-back-button {
-    width: 48px;
-    height: 48px;
-    bottom: 16px;
-    right: 16px;
-
-    i {
-      font-size: 1.3rem;
-    }
-  }
 }
 
 // 頂部橫幅
@@ -298,7 +260,7 @@ onMounted(() => {
   margin-bottom: 2rem;
 }
 
-.design-project-item {
+.web-project-item {
   background-color: var(--card-bg);
   border-radius: 16px;
   overflow: hidden;
@@ -306,7 +268,6 @@ onMounted(() => {
     0 10px 25px -5px var(--shadow),
     0 5px 10px -5px var(--shadow);
   transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-  cursor: pointer;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -371,6 +332,7 @@ onMounted(() => {
   }
 
   .project-overlay {
+    cursor: pointer;
     position: absolute;
     top: 0;
     left: 0;
@@ -383,6 +345,12 @@ onMounted(() => {
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
+
+    &:hover .view-project {
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--primary-color);
+      transform: scale(1.05);
+    }
 
     .view-project {
       display: flex;
@@ -397,12 +365,6 @@ onMounted(() => {
 
       i {
         font-size: 1.1rem;
-      }
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.9);
-        color: var(--primary-color);
-        transform: scale(1.05);
       }
     }
   }
@@ -454,10 +416,10 @@ onMounted(() => {
   margin-bottom: 1.5rem;
   flex-grow: 1;
 }
-
 .project-footer {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
   margin-top: auto;
 
   .project-tech {
@@ -491,11 +453,55 @@ onMounted(() => {
       box-shadow: 0 2px 5px var(--shadow);
     }
   }
+
+  .project-links {
+    display: flex;
+    justify-content: flex-start;
+
+    .project-link-btn {
+      @include base-button(0.5rem 1.2rem);
+      gap: 0.4rem;
+      font-size: 0.85rem;
+
+      i {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+// 返回按鈕樣式
+.back-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s ease;
+
+  i {
+    font-size: 1.5rem;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  }
 }
 
 // 響應式設計
 @media (max-width: $mobile-breakpoint) {
-  .design-projects-container {
+  .web-projects-container {
     margin-top: 60px;
     padding: 0 1rem;
   }
@@ -527,7 +533,7 @@ onMounted(() => {
     gap: 1.5rem;
   }
 
-  .design-project-item {
+  .web-project-item {
     max-width: 480px;
     margin-left: auto;
     margin-right: auto;
@@ -535,6 +541,17 @@ onMounted(() => {
 
   .project-title {
     font-size: 1.2rem;
+  }
+
+  .back-button {
+    width: 48px;
+    height: 48px;
+    bottom: 16px;
+    right: 16px;
+
+    i {
+      font-size: 1.3rem;
+    }
   }
 }
 </style>

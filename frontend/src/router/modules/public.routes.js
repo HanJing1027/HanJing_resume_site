@@ -23,7 +23,7 @@ export default [
       {
         path: 'design',
         name: 'DesignProjects',
-        component: () => import('@/components/projects/DesignProjectsList.vue'),
+        component: () => import('@/components/projects/designProject/DesignProjectsList.vue'),
         meta: {
           title: '設計作品集',
         },
@@ -33,20 +33,27 @@ export default [
         name: 'ProjectDetail',
         component: () => import('@/views/ProjectDetailPage.vue'),
         meta: {
-          title: '作品詳情',
-        },
-        beforeEnter: (to, from, next) => {
-          next()
+          title: '設計作品詳情',
+          projectType: 'design',
         },
       },
-      // {
-      //   path: 'web',
-      //   name: 'WebProjects',
-      //   component: () => import('@/components/projects/WebProjectsList.vue'),
-      //   meta: {
-      //     title: '網頁作品集',
-      //   },
+      {
+        path: 'web',
+        name: 'WebProjects',
+        component: () => import('@/components/projects/webProject/WebProjectsList.vue'),
+        meta: {
+          title: '網頁作品集',
+        },
+      },
+      {
+        path: 'web/:id',
+        name: 'WebProjectDetail',
+        component: () => import('@/views/ProjectDetailPage.vue'),
+        meta: {
+          title: '網頁專案詳情',
+          projectType: 'web',
+        },
+      },
     ],
-    // },
   },
 ]
