@@ -52,7 +52,7 @@
     </div>
 
     <!-- 專案連結 -->
-    <div class="project-links" v-if="project.link || project.github">
+    <div class="project-links">
       <a v-if="project.link" :href="project.link" target="_blank" class="project-link">
         <i class="bx bx-link-external"></i>
         Link
@@ -67,20 +67,34 @@
     </div>
 
     <!-- 專案資訊 -->
-    <div class="project-info-section" v-if="project.date">
+    <div class="project-info-section">
       <h2>專案資訊</h2>
       <div class="info-grid">
-        <div class="info-item">
-          <span class="info-label">開發時間</span>
-          <span class="info-value">{{ formatDate(project.date) }}</span>
+        <!-- 第一行：開發時間和專案類型 -->
+        <div class="info-row top-row">
+          <div class="info-item">
+            <span class="info-label">開發時間</span>
+            <span class="info-value">{{ formatDate(project.date) }}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">專案類型</span>
+            <span class="info-value">{{ getCategoryName(project.categories[0]) }}</span>
+          </div>
         </div>
-        <div class="info-item">
-          <span class="info-label">專案類型</span>
-          <span class="info-value">{{ getCategoryName(project.categories[0]) }}</span>
-        </div>
-        <div class="info-item" v-if="project.technologies.length">
-          <span class="info-label">使用技術</span>
-          <span class="info-value">{{ project.technologies.join(', ') }}</span>
+
+        <!-- 第二行：技術總結 -->
+        <div class="info-row">
+          <div class="info-item tech-summary">
+            <div class="info-header">
+              <span class="info-label">技術總結</span>
+              <button class="toggle-btn" @click="showAllTech = !showAllTech" v-if="isLongTechList">
+                {{ showAllTech ? '收起' : '展開' }}
+              </button>
+            </div>
+            <div class="info-value" :class="{ expanded: showAllTech, collapsible: isLongTechList }">
+              {{ project.features.join('、 ') }}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -155,7 +169,7 @@ const project = computed(() => {
     categories: foundProject.categories || [],
     date: foundProject.date || '',
     link: foundProject.link || '',
-    github: foundProject.github || '',
+    features: foundProject.features || [],
   }
 })
 
@@ -418,27 +432,10 @@ const scrollToTop = () => {
   flex-wrap: wrap;
 
   .project-link {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.7rem 1.5rem;
-    border-radius: 30px;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
-    background-color: var(--primary-color);
-    color: white;
+    @include base-button(0.7rem 1.5rem);
 
     i {
       font-size: 1.1rem;
-    }
-
-    &:hover {
-      background-color: var(--primary-color-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(var(--primary-color-rgb), 0.3);
     }
   }
 }
@@ -473,34 +470,102 @@ const scrollToTop = () => {
   }
 
   .info-grid {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
+  }
 
-    @media (min-width: $tablet-breakpoint) {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  .info-row {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+
+    &.top-row {
+      .info-item {
+        flex: 1;
+        min-width: 0; // 防止溢出
+      }
+    }
+  }
+
+  .info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1rem;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    width: 100%;
+
+    &.tech-summary {
+      .info-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.3rem;
+      }
+
+      .toggle-btn {
+        background: none;
+        border: none;
+        color: var(--primary-color);
+        font-size: 0.85rem;
+        cursor: pointer;
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+
+        &:hover {
+          background-color: rgba(var(--primary-color-rgb), 0.1);
+        }
+      }
+
+      .info-value.collapsible {
+        max-height: 80px;
+        overflow-y: hidden;
+        position: relative;
+        transition: max-height 0.3s ease;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 30px;
+          background: linear-gradient(transparent, var(--card-bg));
+          pointer-events: none;
+        }
+
+        &.expanded {
+          max-height: 300px;
+          overflow-y: auto;
+
+          &::after {
+            display: none;
+          }
+        }
+      }
     }
 
-    .info-item {
-      display: flex;
+    .info-label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--primary-color);
+    }
+
+    .info-value {
+      font-size: 0.95rem;
+      color: var(--dark-text);
+      font-weight: 400;
+      line-height: 1.5;
+    }
+  }
+
+  // 響應式調整
+  @media (max-width: $tablet-breakpoint) {
+    .info-row.top-row {
       flex-direction: column;
-      gap: 0.3rem;
-      padding: 1rem;
-      background-color: var(--card-bg);
-      border-radius: 8px;
-      border: 1px solid var(--border-color);
-
-      .info-label {
-        font-size: 0.85rem;
-        font-weight: 500;
-        color: var(--primary-color);
-      }
-
-      .info-value {
-        font-size: 0.95rem;
-        color: var(--dark-text);
-        font-weight: 400;
-      }
     }
   }
 }
