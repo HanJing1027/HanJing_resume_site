@@ -190,9 +190,6 @@ export const allWebProjects = ref([
     ],
   },
   // 04
-  {
-    //
-  },
 ])
 
 // 分類資料
