@@ -86,7 +86,7 @@
         <div class="info-row">
           <div class="info-item tech-summary">
             <div class="info-header">
-              <span class="info-label">技術總結</span>
+              <span class="info-label">技術、功能總結</span>
               <button class="toggle-btn" @click="showAllTech = !showAllTech" v-if="isLongTechList">
                 {{ showAllTech ? '收起' : '展開' }}
               </button>
@@ -302,6 +302,7 @@ const scrollToTop = () => {
 
 // 輪播圖區域
 .project-image-slider {
+  user-select: none;
   margin-bottom: 1.5rem;
   border-radius: 8px;
   overflow: hidden;
