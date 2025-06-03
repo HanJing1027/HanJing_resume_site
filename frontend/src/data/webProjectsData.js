@@ -655,7 +655,7 @@ export const allWebProjects = ref([
   // 16
   {
     id: 16,
-    title: 'Vue 3 待辦清單應用',
+    title: 'Vue待辦清單應用',
     description: '使用 Vue 3 Composition API 開發的簡潔待辦清單，支援分類管理和本地儲存功能',
     extendedDescription:
       '這是我學習 Vue 3 時做的練習專案，想要熟悉 Composition API 的寫法。功能很基本，就是新增、刪除和標記完成待辦事項，但我加了分類功能(工作和個人)，還有本地儲存，所以重新整理頁面資料不會消失。介面設計比較簡潔，用了一些 CSS 變數來管理主題色彩，也嘗試了一些基本的 hover 效果。技術上使用 Vite 作為建置工具，配置了 ESLint 和 Prettier 來保持程式碼格式。雖然功能不多，但這個專案讓我對 Vue 3 的響應式系統和生命週期有了更深的理解。',
@@ -688,7 +688,7 @@ export const allWebProjects = ref([
   // 17
   {
     id: 17,
-    title: 'Vue 財務記帳管理助手',
+    title: '財務記帳管理助手',
     description: '一個用Vue 3開發的個人財務記帳應用，讓記錄收支變得簡單直覺',
     extendedDescription:
       '這是我用Vue 3練習的一個記帳應用，想解決自己平常記錄花費很麻煩的問題。功能很基本但很實用，可以快速記錄收入和支出，會自動計算餘額，還有歷史紀錄可以查看。我用了Vue 3的Composition API來管理狀態，資料會存在localStorage裡，所以重新整理也不會不見。介面設計上盡量保持簡潔，用SCSS來管理樣式，還加了一些基本的響應式設計。雖然功能不算複雜，但透過這個專案我對Vue的響應式系統和組件溝通有了更好的理解，也學會怎麼處理表單驗證和本地儲存。',

@@ -5,7 +5,7 @@ const errorRoutes = [
   {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
-    computed: () => import('@/views/NotFound.vue'),
+    component: () => import('@/views/NotFound.vue'),
     meta: {
       title: '頁面不存在',
     },
