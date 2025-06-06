@@ -3,7 +3,7 @@
     <div class="content-box">
       <h1 class="error-code">404</h1>
       <h2 class="error-title">這個頁面走丟了</h2>
-      <p class="error-message">也許是走錯了路，或是這個作已經悄悄退場！</p>
+      <p class="error-message">也許是走錯了路，或是這個作品已經悄悄退場！</p>
       <div class="action-buttons">
         <router-link to="/" class="home-button">返回首頁</router-link>
       </div>
