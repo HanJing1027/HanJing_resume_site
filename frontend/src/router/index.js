@@ -9,4 +9,9 @@ const router = createRouter({
   },
 })
 
+router.beforeEach((to, from) => {
+  const title = to.meta.title || '黃翰靖 | 前端開發作品集'
+  document.title = title
+})
+
 export default router
