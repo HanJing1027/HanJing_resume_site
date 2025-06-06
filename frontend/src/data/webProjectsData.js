@@ -224,7 +224,7 @@ export const allWebProjects = ref([
     ],
     categories: ['fullstack-demo', 'vue-projects', 'api-projects'],
     date: '2025-05',
-    link: 'https://github.com/yourusername/kaguashinomiya',
+    // link: '',
     features: [
       '前後端分離架構',
       '商品展示與詳細頁面',
@@ -279,7 +279,7 @@ export const allWebProjects = ref([
     ],
     categories: ['fullstack-demo', 'vue-projects', 'api-projects'],
     date: '2024-05',
-    link: '#',
+    // link: '',
     features: [
       '模組化路由設計 (auth/user/public)',
       'RESTful API 串接',
@@ -356,7 +356,7 @@ export const allWebProjects = ref([
     technologies: ['HTML5 Canvas', 'JavaScript ES6+', 'CSS / SCSS', 'Canvas API', 'ImageData API'],
     categories: ['tool-apps'],
     date: '2025-05',
-    link: '#',
+    link: 'https://hanjing1027.github.io/Drawing_App/',
     features: [
       '筆刷繪圖功能',
       '橡皮擦工具',
@@ -401,7 +401,7 @@ export const allWebProjects = ref([
     ],
     categories: ['api-projects', 'tool-apps'],
     date: '2024-05',
-    link: 'https://github.com/yourusername/Google_Gemini_Chatbot', // 請替換成實際連結
+    link: 'https://hanjing1027.github.io/Google_Gemini_Chatbot/',
     features: [
       '即時 AI 對話功能',
       '訊息編輯與重新生成',
@@ -446,7 +446,7 @@ export const allWebProjects = ref([
     technologies: ['HTML5', 'CSS / SCSS', 'JavaScript ES6+', 'Font Awesome', 'Responsive Design'],
     categories: ['ui-animation'],
     date: '2024-05',
-    link: 'https://your-japan-travel-site.com',
+    link: 'https://hanjing1027.github.io/Japan_Travel/',
     features: [
       '語意化 HTML 結構',
       'SCSS 模組化樣式架構',
@@ -475,7 +475,7 @@ export const allWebProjects = ref([
     ],
     categories: ['api-projects', 'tool-apps'],
     date: '2024-11',
-    link: 'https://your-pic-quest-demo.com',
+    link: 'https://hanjing1027.github.io/Pic_Quest/',
     features: [
       '整合 Pexels API 圖片搜尋',
       'Masonry 瀑布流佈局',
@@ -508,7 +508,7 @@ export const allWebProjects = ref([
     ],
     categories: ['tool-apps'],
     date: '2024',
-    link: '#',
+    link: 'https://hanjing1027.github.io/Image_Editor/',
     features: [
       '基本濾鏡調整（亮度、飽和度、灰階、顏色反轉）',
       '圖片旋轉和翻轉功能',
@@ -532,7 +532,7 @@ export const allWebProjects = ref([
     technologies: ['HTML5', 'CSS / SCSS', 'JavaScript ES6+'],
     categories: ['tool-apps'],
     date: '2025-05',
-    link: 'https://github.com/yourusername/Quiz_App',
+    link: 'https://hanjing1027.github.io/Quiz_App/',
     features: [
       '四大科目題庫系統（國文、數學、公民、地理）',
       '15秒計時答題機制',
@@ -565,7 +565,7 @@ export const allWebProjects = ref([
     ],
     categories: ['api-projects', 'tool-apps'],
     date: '2024-05',
-    link: '#',
+    link: 'https://hanjing1027.github.io/AI_Image_Generator/',
     features: [
       'OpenAI DALL-E API 整合',
       '中文到英文自動翻譯',
@@ -597,7 +597,7 @@ export const allWebProjects = ref([
     ],
     categories: ['api-projects', 'tool-apps'],
     date: '2024-05',
-    link: 'test',
+    link: 'https://hanjing1027.github.io/Weather_App/',
     features: [
       '城市天氣查詢功能',
       '當前位置自動定位',
@@ -631,7 +631,7 @@ export const allWebProjects = ref([
     ],
     categories: ['vue-projects', 'tool-apps'],
     date: '2024-05',
-    link: '#',
+    link: 'https://hanjing1027.github.io/Todo_List-Vue/',
     features: [
       'Vue 3 Composition API 實作',
       '待辦事項 CRUD 操作',
@@ -655,7 +655,7 @@ export const allWebProjects = ref([
     technologies: ['Vue 3', 'Composition API', 'CSS / SCSS', 'Vite', 'LocalStorage'],
     categories: ['vue-projects', 'tool-apps'],
     date: '2024-05',
-    link: '#',
+    link: 'https://hanjing1027.github.io/Expense_Tracker_App-Vue/',
     features: [
       '收支記錄快速新增',
       '自動計算收入、支出與餘額',
@@ -684,7 +684,7 @@ export const allWebProjects = ref([
     ],
     categories: ['api-projects', 'tool-apps'],
     date: '2024-05',
-    link: '#',
+    link: 'https://hanjing1027.github.io/Language_Translator_App/',
     features: [
       '支援 90+ 種語言翻譯',
       'MyMemory API 翻譯服務整合',
@@ -718,7 +718,7 @@ export const allWebProjects = ref([
     ],
     categories: ['api-projects', 'tool-apps'],
     date: '2024-05',
-    link: 'https://github.com/yourusername/chatbot-gemini', // 請替換成實際連結
+    link: 'https://hanjing1027.github.io/Chatbot/',
     features: [
       '基本 AI 對話功能',
       '浮動聊天視窗',
@@ -752,7 +752,7 @@ export const allWebProjects = ref([
     ],
     categories: ['api-projects', 'tool-apps'],
     date: '2025-05',
-    link: 'https://github.com/yourusername/Quiz_App',
+    link: 'https://hanjing1027.github.io/Currency_Converter_App/',
     features: [
       '即時匯率查詢功能',
       '支援多種國際貨幣',
@@ -776,7 +776,7 @@ export const allWebProjects = ref([
     technologies: ['HTML5', 'CSS3 / SCSS', 'JavaScript ES6+', 'Font Awesome', 'DOM'],
     categories: ['tool-apps'],
     date: '2024-05',
-    link: 'https://github.com/yourusername/Quiz_App',
+    link: 'https://hanjing1027.github.io/Tic_Tac_Toe_Game/',
     features: [
       '玩家可選擇 X 或 O 符號',
       '兩種 AI 難度模式',
@@ -801,7 +801,7 @@ export const allWebProjects = ref([
     technologies: ['HTML5', 'JavaScript ES6+', 'CSS / SCSS', 'DOM'],
     categories: ['tool-apps'],
     date: '2024-11',
-    link: 'https://your-typing-game.com',
+    link: 'https://hanjing1027.github.io/Typing_Speed_Test_Game/',
     features: [
       '隨機英文段落選擇',
       '即時打字準確度檢查',
@@ -825,7 +825,7 @@ export const allWebProjects = ref([
     technologies: ['HTML5', 'CSS / SCSS', 'JavaScript ES6+', 'Font Awesome'],
     categories: ['tool-apps'],
     date: '2024',
-    link: 'https://your-memory-game-url.com',
+    link: 'https://hanjing1027.github.io/Memory_Game/',
     features: [
       '12張卡片的記憶配對遊戲',
       '40秒倒數計時挑戰',
