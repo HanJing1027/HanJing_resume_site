@@ -188,7 +188,7 @@ export const allWebProjects = ref([
       'Vite',
     ],
     categories: ['vue-projects', 'ui-animation'],
-    date: '2024-12',
+    date: '2025-05',
     link: 'https://your-portfolio-site.com',
     features: [
       'Vue 3 Composition API 架構',
@@ -223,7 +223,7 @@ export const allWebProjects = ref([
       'Frontend-Backend Collaboration',
     ],
     categories: ['fullstack-demo', 'vue-projects', 'api-projects'],
-    date: '2025-05',
+    date: '2025-03',
     // link: '',
     features: [
       '前後端分離架構',
@@ -278,7 +278,7 @@ export const allWebProjects = ref([
       'Frontend-Backend Collaboration',
     ],
     categories: ['fullstack-demo', 'vue-projects', 'api-projects'],
-    date: '2024-05',
+    date: '2025-04',
     // link: '',
     features: [
       '模組化路由設計 (auth/user/public)',
@@ -333,7 +333,7 @@ export const allWebProjects = ref([
       'Responsive Design',
     ],
     categories: ['ui-animation'],
-    date: '2024-05',
+    date: '2024-11',
     link: 'https://kumanomori.store/',
     features: [
       '語意化 HTML 結構',
@@ -355,7 +355,7 @@ export const allWebProjects = ref([
     images: [drawingApp1, drawingApp2],
     technologies: ['HTML5 Canvas', 'JavaScript ES6+', 'CSS / SCSS', 'Canvas API', 'ImageData API'],
     categories: ['tool-apps'],
-    date: '2025-05',
+    date: '2025-02',
     link: 'https://hanjing1027.github.io/Drawing_App/',
     features: [
       '筆刷繪圖功能',
@@ -400,7 +400,7 @@ export const allWebProjects = ref([
       'Font Awesome',
     ],
     categories: ['api-projects', 'tool-apps'],
-    date: '2024-05',
+    date: '2025-02',
     link: 'https://hanjing1027.github.io/Google_Gemini_Chatbot/',
     features: [
       '即時 AI 對話功能',
@@ -445,7 +445,7 @@ export const allWebProjects = ref([
     ],
     technologies: ['HTML5', 'CSS / SCSS', 'JavaScript ES6+', 'Font Awesome', 'Responsive Design'],
     categories: ['ui-animation'],
-    date: '2024-05',
+    date: '2024-10',
     link: 'https://hanjing1027.github.io/Japan_Travel/',
     features: [
       '語意化 HTML 結構',
@@ -474,7 +474,7 @@ export const allWebProjects = ref([
       'Async/Await',
     ],
     categories: ['api-projects', 'tool-apps'],
-    date: '2024-11',
+    date: '2025-03',
     link: 'https://hanjing1027.github.io/Pic_Quest/',
     features: [
       '整合 Pexels API 圖片搜尋',
@@ -507,7 +507,7 @@ export const allWebProjects = ref([
       'Responsive Design',
     ],
     categories: ['tool-apps'],
-    date: '2024',
+    date: '2025-02',
     link: 'https://hanjing1027.github.io/Image_Editor/',
     features: [
       '基本濾鏡調整（亮度、飽和度、灰階、顏色反轉）',
@@ -531,7 +531,7 @@ export const allWebProjects = ref([
     images: [quizApp1, quizApp2, quizApp3, quizApp4, quizApp5],
     technologies: ['HTML5', 'CSS / SCSS', 'JavaScript ES6+'],
     categories: ['tool-apps'],
-    date: '2025-05',
+    date: '2025-02',
     link: 'https://hanjing1027.github.io/Quiz_App/',
     features: [
       '四大科目題庫系統（國文、數學、公民、地理）',
@@ -564,7 +564,7 @@ export const allWebProjects = ref([
       'Responsive Design',
     ],
     categories: ['api-projects', 'tool-apps'],
-    date: '2024-05',
+    date: '2025-02',
     link: 'https://hanjing1027.github.io/AI_Image_Generator/',
     features: [
       'OpenAI DALL-E API 整合',
@@ -596,7 +596,7 @@ export const allWebProjects = ref([
       'Font Awesome',
     ],
     categories: ['api-projects', 'tool-apps'],
-    date: '2024-05',
+    date: '2025-02',
     link: 'https://hanjing1027.github.io/Weather_App/',
     features: [
       '城市天氣查詢功能',
@@ -630,7 +630,7 @@ export const allWebProjects = ref([
       'Prettier',
     ],
     categories: ['vue-projects', 'tool-apps'],
-    date: '2024-05',
+    date: '2025-03',
     link: 'https://hanjing1027.github.io/Todo_List-Vue/',
     features: [
       'Vue 3 Composition API 實作',
@@ -654,7 +654,7 @@ export const allWebProjects = ref([
     images: [expenseTrackerApp1, expenseTrackerApp2],
     technologies: ['Vue 3', 'Composition API', 'CSS / SCSS', 'Vite', 'LocalStorage'],
     categories: ['vue-projects', 'tool-apps'],
-    date: '2024-05',
+    date: '2025-03',
     link: 'https://hanjing1027.github.io/Expense_Tracker_App-Vue/',
     features: [
       '收支記錄快速新增',
@@ -683,7 +683,7 @@ export const allWebProjects = ref([
       'Boxicons',
     ],
     categories: ['api-projects', 'tool-apps'],
-    date: '2024-05',
+    date: '2025-02',
     link: 'https://hanjing1027.github.io/Language_Translator_App/',
     features: [
       '支援 90+ 種語言翻譯',
@@ -717,7 +717,7 @@ export const allWebProjects = ref([
       'Responsive Design',
     ],
     categories: ['api-projects', 'tool-apps'],
-    date: '2024-05',
+    date: '2025-02',
     link: 'https://hanjing1027.github.io/Chatbot/',
     features: [
       '基本 AI 對話功能',
@@ -751,7 +751,7 @@ export const allWebProjects = ref([
       'Fetch API',
     ],
     categories: ['api-projects', 'tool-apps'],
-    date: '2025-05',
+    date: '2025-02',
     link: 'https://hanjing1027.github.io/Currency_Converter_App/',
     features: [
       '即時匯率查詢功能',
@@ -775,7 +775,7 @@ export const allWebProjects = ref([
     images: [ticTacToeGame1, ticTacToeGame2, ticTacToeGame3, ticTacToeGame4],
     technologies: ['HTML5', 'CSS3 / SCSS', 'JavaScript ES6+', 'Font Awesome', 'DOM'],
     categories: ['tool-apps'],
-    date: '2024-05',
+    date: '2025-02',
     link: 'https://hanjing1027.github.io/Tic_Tac_Toe_Game/',
     features: [
       '玩家可選擇 X 或 O 符號',
@@ -800,7 +800,7 @@ export const allWebProjects = ref([
     images: [typingSpeedTestGame1, typingSpeedTestGame2, typingSpeedTestGame3],
     technologies: ['HTML5', 'JavaScript ES6+', 'CSS / SCSS', 'DOM'],
     categories: ['tool-apps'],
-    date: '2024-11',
+    date: '2025-02',
     link: 'https://hanjing1027.github.io/Typing_Speed_Test_Game/',
     features: [
       '隨機英文段落選擇',
@@ -824,7 +824,7 @@ export const allWebProjects = ref([
     images: [memoryGame1, memoryGame2, memoryGame3],
     technologies: ['HTML5', 'CSS / SCSS', 'JavaScript ES6+', 'Font Awesome'],
     categories: ['tool-apps'],
-    date: '2024',
+    date: '2025-01',
     link: 'https://hanjing1027.github.io/Memory_Game/',
     features: [
       '12張卡片的記憶配對遊戲',
