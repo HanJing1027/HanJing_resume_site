@@ -145,13 +145,19 @@ const currentYear = computed(() => {
       position: absolute;
       left: 0;
       bottom: 0;
-      height: 2px;
-      width: 40px;
-      background: var(--primary-color);
+      height: 3px;
+      width: 50px;
+      background: linear-gradient(
+        90deg,
+        var(--primary-color) 0%,
+        rgba(var(--primary-color-rgb), 0.3) 100%
+      );
+      border-radius: 2px;
 
       @media (max-width: 768px) {
-        left: 0; // 變更：從居中到靠左
-        transform: none; // 變更：移除居中變換
+        left: 0;
+        transform: none;
+        width: 40px;
       }
     }
   }
