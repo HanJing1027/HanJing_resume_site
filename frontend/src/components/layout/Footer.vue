@@ -58,6 +58,7 @@ const currentYear = computed(() => {
 @use '@/assets/styles/_variables.scss' as *;
 
 .footer {
+  cursor: default;
   position: relative;
   background-color: var(--card-bg-alt);
   color: var(--text-color);
