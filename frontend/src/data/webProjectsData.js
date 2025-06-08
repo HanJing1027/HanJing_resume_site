@@ -225,6 +225,7 @@ export const allWebProjects = ref([
     categories: ['fullstack-demo', 'vue-projects', 'api-projects'],
     date: '2025-03',
     // link: '',
+    downloadReadme: 'kaguya-shopping-readme.md',
     features: [
       '前後端分離架構',
       '商品展示與詳細頁面',
@@ -280,6 +281,7 @@ export const allWebProjects = ref([
     categories: ['fullstack-demo', 'vue-projects', 'api-projects'],
     date: '2025-04',
     // link: '',
+    downloadReadme: 'membership-system-readme.md',
     features: [
       '模組化路由設計 (auth/user/public)',
       'RESTful API 串接',

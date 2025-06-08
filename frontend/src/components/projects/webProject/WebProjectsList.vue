@@ -80,6 +80,15 @@
                 <i class="bx bx-link-external"></i>
                 Link
               </a>
+
+              <button
+                v-if="project.downloadReadme"
+                class="project-link-btn"
+                @click.stop="downloadReadme(project.downloadReadme)"
+              >
+                <i class="bx bx-cloud-download"></i>
+                下載 README
+              </button>
             </div>
           </div>
         </div>
@@ -144,6 +153,17 @@ const openProjectDetail = (project) => {
     name: 'WebProjectDetail',
     params: { id: project.id },
   })
+}
+
+// 下載專案 README 檔案
+const downloadReadme = (filename) => {
+  const link = document.createElement('a')
+  link.href = `/readmes/${filename}`
+  link.download = filename
+  link.style.display = 'none'
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
 }
 
 onMounted(() => {

@@ -57,6 +57,15 @@
         <i class="bx bx-link-external"></i>
         Link
       </a>
+
+      <button
+        v-if="project.downloadReadme"
+        class="project-link"
+        @click="downloadReadme(project.downloadReadme)"
+      >
+        <i class="bx bx-cloud-download"></i>
+        下載 README
+      </button>
     </div>
 
     <!-- 專案說明 -->
@@ -160,16 +169,17 @@ const projectId = computed(() => parseInt(route.params.id))
 const project = computed(() => {
   const foundProject = allWebProjects.value.find((p) => p.id === projectId.value) || {}
   return {
-    id: foundProject.id || 0,
-    title: foundProject.title || '專案標題',
-    description: foundProject.description || '專案說明內容...',
-    extendedDescription: foundProject.extendedDescription || '',
-    images: foundProject.images || [],
-    technologies: foundProject.technologies || [],
-    categories: foundProject.categories || [],
-    date: foundProject.date || '',
-    link: foundProject.link || '',
-    features: foundProject.features || [],
+    id: foundProject.id,
+    title: foundProject.title,
+    description: foundProject.description,
+    extendedDescription: foundProject.extendedDescription,
+    images: foundProject.images,
+    technologies: foundProject.technologies,
+    categories: foundProject.categories,
+    date: foundProject.date,
+    link: foundProject.link,
+    downloadReadme: foundProject.downloadReadme,
+    features: foundProject.features,
   }
 })
 
@@ -209,6 +219,17 @@ const navigateToProject = (project) => {
     name: 'WebProjectDetail',
     params: { id: project.id },
   })
+}
+
+// 下載專案 README 檔案
+const downloadReadme = (filename) => {
+  const link = document.createElement('a')
+  link.href = `/readmes/${filename}`
+  link.download = filename
+  link.style.display = 'none'
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
 }
 
 // 返回頂部
