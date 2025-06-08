@@ -189,7 +189,8 @@ export const allWebProjects = ref([
     ],
     categories: ['vue-projects', 'ui-animation'],
     date: '2025-05',
-    link: 'https://your-portfolio-site.com',
+    // link: '',
+    downloadReadme: 'hanjing_resume_readme.md',
     features: [
       'Vue 3 Composition API 架構',
       '模組化組件設計',
