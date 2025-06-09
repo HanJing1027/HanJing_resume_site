@@ -43,7 +43,7 @@ import ProjectCard from '@/components/projects/ProjectCard.vue'
 
   @media (max-width: $mobile-breakpoint) {
     padding: 0 1.5rem;
-    margin-top: 35px;
+    margin: 36px 0;
     flex-direction: column;
     align-items: center;
   }
