@@ -184,12 +184,14 @@ const currentYear = computed(() => {
       text-decoration: none;
       transition: all 0.3s ease;
 
-      &:hover {
-        padding-left: 0.5rem;
-        color: var(--primary-color);
+      @media (hover: hover) {
+        &:hover {
+          padding-left: 0.5rem;
+          color: var(--primary-color);
 
-        &:before {
-          transform: translateX(5px);
+          &:before {
+            transform: translateX(5px);
+          }
         }
       }
     }

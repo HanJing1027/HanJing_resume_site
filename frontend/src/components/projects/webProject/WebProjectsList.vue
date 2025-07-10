@@ -250,13 +250,15 @@ onMounted(() => {
       transition: transform 0.25s ease;
     }
 
-    &:hover {
-      background-color: var(--card-bg-alt);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px var(--shadow);
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--card-bg-alt);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px var(--shadow);
 
-      i {
-        transform: scale(1.1);
+        i {
+          transform: scale(1.1);
+        }
       }
     }
 
@@ -309,27 +311,29 @@ onMounted(() => {
     transition: opacity 0.3s ease;
   }
 
-  &:hover {
-    transform: translateY(-10px);
-    box-shadow:
-      0 15px 35px var(--shadow),
-      0 7px 15px -10px var(--shadow);
-    border-color: rgba(var(--primary-color-rgb), 0.3);
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow:
+        0 15px 35px var(--shadow),
+        0 7px 15px -10px var(--shadow);
+      border-color: rgba(var(--primary-color-rgb), 0.3);
 
-    &::before {
-      opacity: 1;
-    }
+      &::before {
+        opacity: 1;
+      }
 
-    .project-image img {
-      transform: scale(1.05);
-    }
+      .project-image img {
+        transform: scale(1.05);
+      }
 
-    .project-overlay {
-      opacity: 1;
-    }
+      .project-overlay {
+        opacity: 1;
+      }
 
-    .project-title {
-      color: var(--primary-color);
+      .project-title {
+        color: var(--primary-color);
+      }
     }
   }
 }

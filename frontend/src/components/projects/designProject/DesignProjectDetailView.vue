@@ -363,9 +363,11 @@ const scrollToTop = () => {
       font-size: 1rem;
     }
 
-    &:hover {
-      background-color: var(--accent-light);
-      transform: translateY(-2px);
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--accent-light);
+        transform: translateY(-2px);
+      }
     }
   }
 }
@@ -544,8 +546,10 @@ const scrollToTop = () => {
       font-size: 1.1rem;
     }
 
-    &:hover {
-      transform: translateY(-3px);
+    @media (hover: hover) {
+      &:hover {
+        transform: translateY(-3px);
+      }
     }
 
     &.back-top {
@@ -553,9 +557,11 @@ const scrollToTop = () => {
       color: var(--text-color);
       border: 1px solid var(--border-color);
 
-      &:hover {
-        background-color: var(--card-bg-alt);
-        box-shadow: 0 5px 15px var(--shadow);
+      @media (hover: hover) {
+        &:hover {
+          background-color: var(--card-bg-alt);
+          box-shadow: 0 5px 15px var(--shadow);
+        }
       }
     }
 
@@ -563,9 +569,11 @@ const scrollToTop = () => {
       background-color: var(--primary-color);
       color: white;
 
-      &:hover {
-        background-color: var(--primary-color-dark);
-        box-shadow: 0 5px 15px rgba(var(--primary-color-rgb), 0.3);
+      @media (hover: hover) {
+        &:hover {
+          background-color: var(--primary-color-dark);
+          box-shadow: 0 5px 15px rgba(var(--primary-color-rgb), 0.3);
+        }
       }
     }
   }

@@ -88,13 +88,15 @@ const toggleCategory = (index) => {
     border-radius: 4px 0 0 4px;
   }
 
-  &:hover {
-    .title-decoration .line {
-      width: 110px;
-    }
+  @media (hover: hover) {
+    &:hover {
+      .title-decoration .line {
+        width: 110px;
+      }
 
-    .toggle-icon {
-      color: var(--primary-color);
+      .toggle-icon {
+        color: var(--primary-color);
+      }
     }
   }
 }

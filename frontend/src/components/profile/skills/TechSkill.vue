@@ -65,10 +65,12 @@ onBeforeUnmount(() => {
   transition: all $transition-speed ease;
   border-left: 3px solid transparent;
 
-  &:hover {
-    border-left: 3px solid var(--primary-color);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    transform: translateX(5px);
+  @media (hover: hover) {
+    &:hover {
+      border-left: 3px solid var(--primary-color);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      transform: translateX(5px);
+    }
   }
 }
 

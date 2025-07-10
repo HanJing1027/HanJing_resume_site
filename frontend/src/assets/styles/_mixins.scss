@@ -31,16 +31,18 @@
     transition: left 0.7s ease;
   }
 
-  &:hover {
-    transform : translateY(-3px);
-    box-shadow: 0 6px 15px rgba(var(--primary-color-rgb), 0.4);
+  @media (hover: hover) {
+    &:hover {
+      transform : translateY(-3px);
+      box-shadow: 0 6px 15px rgba(var(--primary-color-rgb), 0.4);
 
-    &::before {
-      left: 100%;
+      &::before {
+        left: 100%;
+      }
     }
-  }
 
-  &:active {
-    transform: translateY(-1px);
+    &:active {
+      transform: translateY(-1px);
+    }
   }
 }

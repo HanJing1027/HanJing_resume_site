@@ -51,9 +51,11 @@ const toggleTheme = () => {
   cursor: pointer;
   transition: all $transition-speed ease;
 
-  &:hover {
-    background: var(--accent-light);
-    transform: rotate(15deg);
+  @media (hover: hover) {
+    &:hover {
+      background: var(--accent-light);
+      transform: rotate(15deg);
+    }
   }
 
   i {

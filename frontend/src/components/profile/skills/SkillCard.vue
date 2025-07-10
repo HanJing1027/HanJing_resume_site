@@ -363,12 +363,14 @@ onMounted(() => {
       transition: transform 0.3s ease;
     }
 
-    &:hover:not(:disabled) {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 15px rgba(var(--primary-color-rgb), 0.4);
+    @media (hover: hover) {
+      &:hover:not(:disabled) {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(var(--primary-color-rgb), 0.4);
 
-      i {
-        transform: translateX(3px);
+        i {
+          transform: translateX(3px);
+        }
       }
     }
 
@@ -378,12 +380,14 @@ onMounted(() => {
       transform: none;
       box-shadow: none;
 
-      &:hover {
-        transform: none;
-        box-shadow: none;
-
-        i {
+      @media (hover: hover) {
+        &:hover {
           transform: none;
+          box-shadow: none;
+
+          i {
+            transform: none;
+          }
         }
       }
     }

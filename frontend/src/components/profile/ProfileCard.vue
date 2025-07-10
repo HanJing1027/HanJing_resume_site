@@ -178,8 +178,10 @@ onMounted(() => {
     transition: transform 0.5s ease;
   }
 
-  &:hover img {
-    transform: scale(1.05);
+  @media (hover: hover) {
+    &:hover img {
+      transform: scale(1.05);
+    }
   }
 }
 
