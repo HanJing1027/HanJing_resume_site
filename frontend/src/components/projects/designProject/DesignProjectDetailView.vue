@@ -23,7 +23,7 @@
         <swiper
           :modules="[SwiperNavigation, SwiperPagination, SwiperAutoplay]"
           :slides-per-view="1"
-          :space-between="0"
+          :space-between="10"
           :loop="project.images.length > 1"
           :pagination="{ clickable: true }"
           :navigation="project.images.length > 1"
@@ -166,6 +166,7 @@ const scrollToTop = () => {
 @use '@/assets/styles/_variables.scss' as *;
 
 .project-detail-container {
+  cursor: default;
   width: 100%;
   max-width: 1080px;
   min-height: 100vh;
