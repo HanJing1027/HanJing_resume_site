@@ -144,6 +144,27 @@ import membershipDemo15 from '@/assets/images/web_img/membership_demo15.png'
 import picQuest1 from '@/assets/images/web_img/pic_quest01.png'
 import picQuest2 from '@/assets/images/web_img/pic_quest02.png'
 
+import mivida1 from '@/assets/images/web_img/mivida00.png'
+import mivida2 from '@/assets/images/web_img/mivida01.png'
+import mivida3 from '@/assets/images/web_img/mivida02.png'
+import mivida4 from '@/assets/images/web_img/mivida03.png'
+import mivida5 from '@/assets/images/web_img/mivida04.png'
+import mivida6 from '@/assets/images/web_img/mivida05.png'
+import mivida7 from '@/assets/images/web_img/mivida06.png'
+import mivida8 from '@/assets/images/web_img/mivida07.png'
+import mivida9 from '@/assets/images/web_img/mivida08.png'
+import mivida10 from '@/assets/images/web_img/mivida09.png'
+import mivida11 from '@/assets/images/web_img/mivida10.png'
+import mivida12 from '@/assets/images/web_img/mivida11.png'
+import mivida13 from '@/assets/images/web_img/mivida12.png'
+import mivida14 from '@/assets/images/web_img/mivida13.png'
+import mivida15 from '@/assets/images/web_img/mivida14.png'
+import mivida16 from '@/assets/images/web_img/mivida15.png'
+import mivida17 from '@/assets/images/web_img/mivida16.png'
+import mivida18 from '@/assets/images/web_img/mivida17.png'
+import mivida19 from '@/assets/images/web_img/mivida18.png'
+import mivida20 from '@/assets/images/web_img/mivida19.png'
+
 // 網頁作品資料
 export const allWebProjects = ref([
   // 03 個人履歷作品集網站
@@ -177,15 +198,16 @@ export const allWebProjects = ref([
       webResume20,
     ],
     technologies: [
+      'Vite',
       'Vue 3',
+      'Composition API',
       'Vue Router',
       'Pinia',
-      'Composition API',
+      'ESLint / Prettier',
+      'Swiper.js',
       'CSS / SCSS',
       'BoxIcons',
-      'Swiper.js',
       'Responsive Design',
-      'Vite',
     ],
     categories: ['vue-projects', 'ui-animation'],
     date: '2025-05',
@@ -203,6 +225,74 @@ export const allWebProjects = ref([
       '舒適的配色與視覺設計',
     ],
   },
+  // 20 MiVida 社群平台
+  {
+    id: 20,
+    title: 'MiVida 社群平台',
+    description: '使用 Vue.js 3 + Strapi 開發的社群媒體平台，實現完整的社交功能與互動體驗',
+    extendedDescription: `這是我學習現代前端技術的練習專案！技術上，我使用 Vue 3 的 Composition API 和 Pinia 進行狀態管理，並將貼文、留言、用戶等功能模組化，讓程式碼更易維護和擴展。在 UI/UX 設計上，我希望操作流暢且直覺。像是標籤系統可以自動解析 #標籤，並支援點擊搜尋功能。還加入了圖片雙擊按讚的互動效果，讓使用者操作更自然。最近新增了編輯和刪除貼文、留言的功能。編輯留言有時間限制，刪除則會跳出防呆警示視窗，避免誤操作。此外，還更新了多圖上傳功能，支援拖曳排序，讓圖片管理更方便。這個專案讓我學到前後端整合、狀態管理，以及處理複雜用戶互動的技巧。雖然還有一些功能可以優化，但我會持續完善，並挑戰更大的專案！`,
+    imageUrl: mivida1,
+    images: [
+      mivida4,
+      mivida3,
+      mivida1,
+      mivida5,
+      mivida6,
+      mivida11,
+      mivida16,
+      mivida2,
+      mivida17,
+      mivida14,
+      mivida18,
+      mivida15,
+      mivida12,
+      mivida8,
+      mivida9,
+      mivida10,
+      mivida7,
+      mivida19,
+      mivida20,
+      mivida13,
+    ],
+    technologies: [
+      'Vite',
+      'Vue 3',
+      'Composition API',
+      'Vue Router',
+      'Pinia',
+      'Axios',
+      'js-cookie',
+      'Strapi',
+      'JWT',
+      'ESLint / Prettier',
+      'CSS / SCSS',
+      'BoxIcons',
+      'Responsive Design',
+      'Frontend-Backend Collaboration',
+    ],
+    categories: ['fullstack-demo', 'vue-projects', 'api-projects'],
+    date: '2025-06',
+    downloadReadme: 'vue-social-demo-readme.md',
+    link: 'https://github.com/HanJing1027/vue_social_demo',
+    features: [
+      '完整的會員註冊登入系統',
+      'JWT Token 身份驗證',
+      '圖片上傳與即時預覽',
+      '多圖上傳功能',
+      '拖曳編輯圖片順序',
+      '個人資料編輯功能',
+      '貼文發布與瀏覽',
+      '標籤系統（#標籤自動解析）',
+      '按讚收藏互動功能',
+      '雙擊圖片按讚效果',
+      '留言系統',
+      '關鍵字搜尋功能',
+      '個人頁面與貼文管理',
+      '彈窗式貼文詳情頁',
+      '網格式貼文展示',
+      '響應式設計（手機版優化）',
+    ],
+  },
   // 18 巨人聯名服飾主題購物網站
   {
     id: 18,
@@ -213,19 +303,21 @@ export const allWebProjects = ref([
     imageUrl: kaguya1,
     images: [kaguya1, kaguya2, kaguya3, kaguya4, kaguya5, kaguya6, kaguya7, kaguya8, kaguya9],
     technologies: [
+      'Vite',
       'Vue 3',
+      'Composition API',
       'Vue Router',
       'Pinia',
-      'CSS / SCSS',
-      'Vite',
       'Axios',
       'RESTful API',
+      'CSS / SCSS',
       'Boxicons',
+      'Responsive Design',
       'Frontend-Backend Collaboration',
     ],
     categories: ['fullstack-demo', 'vue-projects', 'api-projects'],
     date: '2025-03',
-    // link: '',
+    link: 'https://github.com/gixiangxiang/kaguashinomiya',
     downloadReadme: 'kaguya-shopping-readme.md',
     features: [
       '前後端分離架構',
@@ -243,7 +335,7 @@ export const allWebProjects = ref([
   // 19 會員管理系統 DEMO
   {
     id: 19,
-    title: '會員管理系統DEMO',
+    title: '會員管理系統 DEMO',
     description: '與後端開發者協作的會員系統專案，負責前端 Vue 開發與 API 串接',
     extendedDescription:
       '這是我與後端開發者協作完成的會員系統，我主要負責前端的部分。使用 Vue 3 搭配現代化的開發工具，與後端的 API 進行串接。專案採用前後端分離的架構，我負責處理使用者介面、路由管理、狀態管理和 API 串接。在協作過程中學到很多，像是如何與後端討論 API 規格、錯誤處理的統一、還有前後端的資料格式協調。路由設計上我把功能模組化分類，包含 publicRoutes(公開頁面)、authRoutes(認證相關)、userRoutes(會員功能)等，讓程式碼更好維護。特別在登入持久化這塊，我使用了 js-cookie 庫來管理 token 的儲存，處理自動登入、cookie 過期設定、還有登出時的清除機制等問題。雖然主要專精在前端，但透過這次協作也更了解全端開發的流程，包括如何處理 JWT token、API 的錯誤回應、還有一些安全性的考量。',
@@ -266,14 +358,14 @@ export const allWebProjects = ref([
       membershipDemo15,
     ],
     technologies: [
-      'Vue 3',
-      'Vuex',
-      'Vue Router',
-      'SCSS',
-      'Axios',
       'Vite',
-      'JWT Authentication',
+      'Vue 3',
+      'Vue Router',
+      'Vuex',
+      'Axios',
       'ESLint / Prettier',
+      'CSS / SCSS',
+      'JWT Authentication',
       'RESTful API',
       'js-cookie',
       'SessionStorage',
@@ -281,7 +373,7 @@ export const allWebProjects = ref([
     ],
     categories: ['fullstack-demo', 'vue-projects', 'api-projects'],
     date: '2025-04',
-    // link: '',
+    link: 'https://github.com/HanJing1027/membership-demo',
     downloadReadme: 'membership-system-readme.md',
     features: [
       '模組化路由設計 (auth/user/public)',
