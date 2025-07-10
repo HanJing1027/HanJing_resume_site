@@ -476,6 +476,7 @@ onMounted(() => {
 
   .project-links {
     display: flex;
+    gap: 1rem;
     justify-content: flex-start;
 
     .project-link-btn {
