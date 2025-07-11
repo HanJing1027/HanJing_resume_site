@@ -108,7 +108,7 @@
           <p>{{ project.description }}</p>
         </div>
 
-        <!-- 詳細說明 - 可展開收縮 -->
+        <!-- 詳細說明 -->
         <div v-if="project.extendedDescription" class="extended-description-section">
           <div class="extended-header" @click="toggleExtendedDesc">
             <div class="extended-info">
@@ -162,7 +162,7 @@
           </div>
         </div>
 
-        <!-- 第二行：技術功能總結 - 全寬度 -->
+        <!-- 第二行：技術功能總結 -->
         <div class="info-row">
           <div class="info-item tech-summary-collapsible full-width">
             <div class="summary-header" @click="toggleFeatures">
@@ -552,7 +552,6 @@ const scrollToTop = () => {
     transition: all 0.3s ease;
     border-bottom: 1px solid transparent;
     background-color: rgba(var(--primary-color-rgb), 0.02);
-    border-bottom-color: var(--border-color);
 
     @media (hover: hover) {
       &:hover {
@@ -745,7 +744,7 @@ const scrollToTop = () => {
 // 技術標籤展開收縮動畫
 .tech-collapse-enter-active,
 .tech-collapse-leave-active {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
 }
 
@@ -1020,7 +1019,7 @@ const scrollToTop = () => {
 // 擴展說明展開收縮動畫
 .extended-collapse-enter-active,
 .extended-collapse-leave-active {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
 }
 
@@ -1058,7 +1057,6 @@ const scrollToTop = () => {
 
   @media (hover: hover) {
     &:hover {
-      transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
     }
   }
