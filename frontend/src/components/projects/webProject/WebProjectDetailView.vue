@@ -77,7 +77,7 @@
       </div>
 
       <transition name="tech-collapse">
-        <div v-show="isTechTagsExpanded" class="tech-tags">
+        <div v-if="isTechTagsExpanded" class="tech-tags">
           <div
             v-for="(tech, index) in project.technologies"
             :key="index"
@@ -124,7 +124,7 @@
           </div>
 
           <transition name="extended-collapse">
-            <div v-show="isExtendedDescExpanded" class="extended-content">
+            <div v-if="isExtendedDescExpanded" class="extended-content">
               <p>{{ project.extendedDescription }}</p>
             </div>
           </transition>
@@ -181,7 +181,7 @@
             </div>
 
             <transition name="features-collapse">
-              <div v-show="isFeaturesExpanded" class="features-content">
+              <div v-if="isFeaturesExpanded" class="features-content">
                 <div class="features-grid">
                   <div
                     v-for="(feature, index) in project.features"
@@ -741,23 +741,34 @@ const scrollToTop = () => {
   }
 }
 
-// 技術標籤展開收縮動畫
+// 術標籤展開收縮動畫
 .tech-collapse-enter-active,
 .tech-collapse-leave-active {
-  transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   overflow: hidden;
+  will-change: max-height, opacity, transform;
 }
 
-.tech-collapse-enter-from,
+.tech-collapse-enter-from {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
 .tech-collapse-leave-to {
   max-height: 0;
   opacity: 0;
   transform: translateY(-10px);
 }
 
-.tech-collapse-enter-to,
+.tech-collapse-enter-to {
+  max-height: 800px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .tech-collapse-leave-from {
-  max-height: 500px;
+  max-height: 800px;
   opacity: 1;
   transform: translateY(0);
 }
@@ -1576,16 +1587,18 @@ const scrollToTop = () => {
       box-shadow: 0 4px 12px var(--shadow);
       border: 1px solid var(--border-color);
 
-      &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px var(--shadow);
+      @media (hover: hover) {
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 20px var(--shadow);
 
-        .related-image img {
-          transform: scale(1.05);
-        }
+          .related-image img {
+            transform: scale(1.05);
+          }
 
-        .related-info h3 {
-          color: var(--primary-color);
+          .related-info h3 {
+            color: var(--primary-color);
+          }
         }
       }
 
