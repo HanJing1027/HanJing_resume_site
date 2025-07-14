@@ -24,7 +24,7 @@
         <swiper-slide v-for="(cert, index) in certifications" :key="index" class="cert-slide">
           <div class="cert-card">
             <div class="cert-image">
-              <img :src="cert.image" :alt="cert.title" />
+              <img :src="cert.image" :alt="cert.title" loading="lazy" />
               <div class="cert-overlay">
                 <button class="view-cert-btn">查看證書</button>
               </div>
@@ -51,9 +51,9 @@ import 'swiper/css/pagination'
 
 import { ref } from 'vue'
 
-import photoshopImg from '@/assets/images/certifications/photoshop.jpg'
-import IllustratorImg from '@/assets/images/certifications/illustrator.jpg'
-import chromaticsImg from '@/assets/images/certifications/chromatics.jpg'
+import photoshopImg from '@/assets/images/certifications/photoshop.webp'
+import IllustratorImg from '@/assets/images/certifications/illustrator.webp'
+import chromaticsImg from '@/assets/images/certifications/chromatics.webp'
 
 // 證照資料
 const certifications = ref([
