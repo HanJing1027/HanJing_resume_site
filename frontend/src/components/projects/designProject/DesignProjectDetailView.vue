@@ -69,7 +69,7 @@
           @click="navigateToProject(relatedProject)"
         >
           <div class="related-image">
-            <img :src="relatedProject.imageUrl" :alt="relatedProject.title" />
+            <img :src="relatedProject.imageUrl" :alt="relatedProject.title" loading="lazy" />
           </div>
           <div class="related-info">
             <h3>{{ relatedProject.title }}</h3>
